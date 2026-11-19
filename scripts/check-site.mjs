@@ -2,9 +2,11 @@
 // Run after `astro build` (npm run build does). Exit 1 on any finding.
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { dirname, join, relative, resolve } from 'node:path';
+import { base } from '../site.config.mjs';
 
 const root = new URL('..', import.meta.url).pathname;
-const dist = join(root, 'dist');
+// SITE_DIST points the same checks at another copy of the built site, for example a mirror of the deployed one.
+const dist = process.env.SITE_DIST ? resolve(process.env.SITE_DIST) : join(root, 'dist');
 if (!existsSync(dist)) { console.error('check-site: no dist/ (run astro build first)'); process.exit(2); }
 
 const findings = [];
@@ -29,10 +31,13 @@ const ids = (file) => {
   }
   return idsOf.get(file);
 };
+const prefix = base.replace(/\/$/, '');
+const underBase = (path) => path === prefix || path.startsWith(`${prefix}/`);
 const target = (from, href) => {
   const [path, fragment] = href.split('#');
-  const base = path === '' ? from : path.startsWith('/') ? join(dist, path) : resolve(dirname(from), path);
-  const candidates = path === '' ? [from] : [base, `${base}.html`, join(base, 'index.html')];
+  const rooted = path.startsWith('/') && prefix && underBase(path) ? path.slice(prefix.length) || '/' : path;
+  const at = path === '' ? from : rooted.startsWith('/') ? join(dist, rooted) : resolve(dirname(from), rooted);
+  const candidates = path === '' ? [from] : [at, `${at}.html`, join(at, 'index.html')];
   const file = candidates.find((c) => existsSync(c) && statSync(c).isFile());
   return { file, fragment };
 };
@@ -42,6 +47,8 @@ for (const file of htmlFiles) {
   for (const [, attr, raw] of html.matchAll(/\s(href|src)="([^"]*)"/g)) {
     const href = raw.replace(/&amp;/g, '&');
     if (/^([a-z][a-z0-9+.-]*:|\/\/)/i.test(href) || href === '') continue;
+    // A root-absolute link outside the base works on a local server and 404s once the site is served under its base.
+    if (prefix && href.startsWith('/') && !underBase(href.split(/[?#]/)[0])) { fail(where, `${attr} ${href} ignores the site base ${prefix}`); continue; }
     const { file: found, fragment } = target(file, href.split('?')[0]);
     if (!found) { fail(where, `broken ${attr} ${href}`); continue; }
     if (fragment && found.endsWith('.html') && !ids(found).has(decodeURIComponent(fragment))) {

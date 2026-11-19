@@ -1,8 +1,11 @@
 import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import mdx from '@astrojs/mdx';
+import { site, base } from './site.config.mjs';
 
 export default defineConfig({
+  site,
+  base,
   integrations: [
     starlight({
       title: 'Ecosystem',

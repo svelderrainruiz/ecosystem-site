@@ -4,6 +4,7 @@ import { execFileSync } from 'node:child_process';
 import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
+import { base } from '../site.config.mjs';
 
 const root = new URL('..', import.meta.url).pathname;
 const docs = join(root, 'src/content/docs');
@@ -27,8 +28,9 @@ const pages = [
   ['kit', 'Home.md', 'members/repo-standards-review-consumer-kit.md', 'consumer kit wiki'],
 ];
 
-// Wiki page names that exist on the site map to site paths. Any other wiki link goes to the wiki itself.
-const sitePages = { 'RSR-Summary': '/members/rsr-summary/', 'mprr-Summary': '/members/mprr-summary/', 'North-Star-Business-Case': '/results/north-star-business-case/', Ecosystem: '/ecosystem/' };
+// Wiki page names that exist on the site map to site paths, under the site base. Any other wiki link goes to the wiki itself.
+const sitePages = Object.fromEntries(Object.entries({ 'RSR-Summary': '/members/rsr-summary/', 'mprr-Summary': '/members/mprr-summary/', 'North-Star-Business-Case': '/results/north-star-business-case/', Ecosystem: '/ecosystem/' })
+  .map(([name, path]) => [name, `${base}${path}`]));
 const wikiUrl = { projectbuddy: 'https://github.com/VITechnologies/projectbuddy/wiki', lba: 'https://github.com/svelderrainruiz/labview-benchmark-actor/wiki', vihs: 'https://github.com/svelderrainruiz/vi-history-suite/wiki', lbabus: 'https://github.com/svelderrainruiz/lbabus/wiki', kit: 'https://github.com/svelderrainruiz/repo-standards-review-consumer-kit/wiki' };
 
 const tmp = mkdtempSync(join(tmpdir(), 'eco-sync-'));

@@ -2,10 +2,14 @@
 // Public members get revisions; private members (RSR, mprr) get counts and export dates only.
 import { execFileSync } from 'node:child_process';
 import { readFileSync, writeFileSync } from 'node:fs';
-import { homedir } from 'node:os';
-import { join } from 'node:path';
 
-const passwordFile = process.env.REGISTRY_PASSWORD_FILE ?? join(homedir(), '.config/rsr-registry-local/postgres-password');
+// The registry connection comes from the environment (or the untracked .env.local that `npm run status` loads), never from this file.
+const need = (name) => {
+  const value = process.env[name];
+  if (!value) { console.error(`gen-status: set ${name} (see the README)`); process.exit(2); }
+  return value;
+};
+const passwordFile = need('REGISTRY_PASSWORD_FILE');
 const members = JSON.parse(readFileSync(new URL('../src/data/members.json', import.meta.url), 'utf8'));
 
 const sql = `
@@ -21,7 +25,7 @@ SELECT member, scope, source_ref, left(source_revision, 7), to_char(accepted_at 
        (SELECT count(*) FROM registry_v1.edges e WHERE e.snapshot_uuid = latest.snapshot_uuid)
 FROM latest ORDER BY 1, 2`;
 
-const out = execFileSync('psql', ['-h', '127.0.0.1', '-p', '55432', '-U', 'postgres', '-d', 'registry_local',
+const out = execFileSync('psql', ['-h', need('REGISTRY_HOST'), '-p', need('REGISTRY_PORT'), '-U', need('REGISTRY_USER'), '-d', need('REGISTRY_DB'),
   '-X', '-A', '-t', '-F', '\t', '-v', 'ON_ERROR_STOP=1', '-c', `SET default_transaction_read_only = on; ${sql}`], {
   env: { ...process.env, PGPASSWORD: readFileSync(passwordFile, 'utf8').trim() },
   encoding: 'utf8',

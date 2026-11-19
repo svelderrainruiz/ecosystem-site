@@ -7,7 +7,7 @@ editUrl: false
 
 *Source: the projectbuddy wiki, `mprr-Summary.md` at commit `331e0eb`. This page is copied as it stands, links to wiki pages that the site doesn't carry go to the wiki.*
 
-`mprr` is a private member of the [ecosystem](/ecosystem/). It is the reusable manual procedure record/replay transport,
+`mprr` is a private member of the [ecosystem](/ecosystem-site/ecosystem/). It is the reusable manual procedure record/replay transport,
 aligned to labview-benchmark-actor's shared contract. Its own repository and wiki are private, so this page is the public
 summary that the ecosystem wiki standard asks a private member to publish.
 

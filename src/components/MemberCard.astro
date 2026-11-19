@@ -10,6 +10,7 @@ const s = status.members.find((m) => m.id === id);
 const isPublic = member.visibility === 'public';
 const scopes = Object.entries(s?.scopes ?? {}).filter(([, count]) => count > 0);
 const scopeLabel = { software: 'Software requirements', system: 'System requirements', test: 'Tests' };
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 <article class="card">
   <header>
@@ -28,7 +29,7 @@ const scopeLabel = { software: 'Software requirements', system: 'System requirem
     <p class="rules">Rules: {member.rules.map((r) => <code>{r}</code>)}</p>
   )}
   {isPublic && member.wiki && <p><a href={member.wiki}>Wiki</a> · <a href={member.repo}>Repository</a></p>}
-  {!isPublic && <p class="note">Private: counts only.{member.summary && (<> <a href={member.summary}>Public summary</a></>)}</p>}
+  {!isPublic && <p class="note">Private: counts only.{member.summary && (<> <a href={`${base}${member.summary}`}>Public summary</a></>)}</p>}
 </article>
 <style>
   .card { margin: 0; border: 1px solid var(--sl-color-gray-5); border-radius: 0.5rem; padding: 1rem; background: var(--sl-color-bg-nav); }
