@@ -1,0 +1,50 @@
+---
+const nodes = {
+  rsr: { x: 280, y: 30, w: 220, label: 'repo-standards-review' },
+  kit: { x: 30, y: 30, w: 190, label: 'consumer kit' },
+  lba: { x: 30, y: 170, w: 190, label: 'labview-benchmark-actor' },
+  lbabus: { x: 30, y: 280, w: 190, label: 'lbabus' },
+  mprr: { x: 330, y: 170, w: 170, label: 'mprr' },
+};
+const box = (n) => ({ cx: n.x + n.w / 2, cy: n.y + 22 });
+---
+<figure>
+  <svg viewBox="0 0 540 340" role="img" aria-labelledby="dm-title dm-desc" xmlns="http://www.w3.org/2000/svg">
+    <title id="dm-title">Member dependency map</title>
+    <desc id="dm-desc">
+      repo-standards-review publishes the consumer kit. labview-benchmark-actor consumes lbabus. mprr is the record and replay
+      protocol, aligned to labview-benchmark-actor's shared contract.
+    </desc>
+    <defs>
+      <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M0,0 L10,5 L0,10 z" class="arrowhead" />
+      </marker>
+    </defs>
+    <line x1="280" y1="52" x2="220" y2="52" class="edge" marker-end="url(#arrow)" />
+    <text x="250" y="44" class="elabel" text-anchor="middle">publishes</text>
+    <line x1="125" y1="192" x2="125" y2="280" class="edge" marker-end="url(#arrow)" />
+    <text x="133" y="240" class="elabel">consumes</text>
+    <line x1="330" y1="192" x2="220" y2="192" class="edge dashed" marker-end="url(#arrow)" />
+    <text x="275" y="184" class="elabel" text-anchor="middle">shared contract</text>
+    {Object.values(nodes).map((n) => (
+      <g>
+        <rect x={n.x} y={n.y} width={n.w} height="44" rx="8" class="node" />
+        <text x={n.x + n.w / 2} y={n.y + 27} text-anchor="middle" class="nlabel">{n.label}</text>
+      </g>
+    ))}
+    <text x="30" y="332" class="foot">projectbuddy hosts the wiki checker; every member is assessed against the RSR standard.</text>
+  </svg>
+  <figcaption>Each arrow follows the relation written on it. mprr is a private member.</figcaption>
+</figure>
+<style>
+  figure { margin: 1.5rem 0; }
+  svg { width: 100%; max-width: 640px; height: auto; }
+  .node { fill: var(--sl-color-bg-nav); stroke: var(--sl-color-gray-3); stroke-width: 1.5; }
+  .nlabel { font-size: 13px; fill: var(--sl-color-white); }
+  .edge { stroke: var(--sl-color-gray-2); stroke-width: 1.5; }
+  .dashed { stroke-dasharray: 5 4; }
+  .arrowhead { fill: var(--sl-color-gray-2); }
+  .elabel { font-size: 11px; fill: var(--sl-color-gray-3); }
+  .foot { font-size: 11px; fill: var(--sl-color-gray-3); }
+  figcaption { font-size: var(--sl-text-sm); color: var(--sl-color-gray-3); }
+</style>

@@ -1,0 +1,46 @@
+---
+import members from '../data/members.json';
+import status from '../data/status.json';
+
+interface Props { id: string }
+const { id } = Astro.props;
+const member = members.find((m) => m.id === id);
+if (!member) throw new Error(`Unknown member: ${id}`);
+const s = status.members.find((m) => m.id === id);
+const isPublic = member.visibility === 'public';
+const scopes = Object.entries(s?.scopes ?? {});
+---
+<article class="card">
+  <header>
+    <h3>{member.name}</h3>
+    <span class={`badge ${isPublic ? 'public' : 'private'}`}>{member.visibility}</span>
+  </header>
+  <p class="role">{member.role}</p>
+  <ul class="facts">
+    <li><span>Standard pin</span><span>@8</span></li>
+    <li><span>Registry export</span><span>{s?.exported ? `last on ${s.lastExport}` : 'none yet'}</span></li>
+    {isPublic && s?.revision && (<li><span>Exported revision</span><span><code>{s.revision}</code></span></li>)}
+    {scopes.map(([scope, count]) => (<li><span>{scope} pages</span><span>{count}</span></li>))}
+    {s?.edges ? (<li><span>Trace links</span><span>{s.edges}</span></li>) : null}
+  </ul>
+  {!isPublic && member.rules && (
+    <p class="rules">Rules: {member.rules.map((r) => <code>{r}</code>)}</p>
+  )}
+  {isPublic && member.wiki && <p><a href={member.wiki}>Wiki</a> · <a href={member.repo}>Repository</a></p>}
+  {!isPublic && <p class="note">Private: counts only.</p>}
+</article>
+<style>
+  .card { margin: 0; border: 1px solid var(--sl-color-gray-5); border-radius: 0.5rem; padding: 1rem; background: var(--sl-color-bg-nav); }
+  header { display: flex; justify-content: space-between; align-items: baseline; gap: 0.5rem; }
+  h3 { margin: 0; font-size: var(--sl-text-lg); }
+  .badge { font-size: var(--sl-text-xs); padding: 0.1rem 0.5rem; border-radius: 1rem; border: 1px solid var(--sl-color-gray-4); }
+  .badge.public { color: var(--sl-color-green-high); }
+  .badge.private { color: var(--sl-color-orange-high); }
+  .role { margin: 0.4rem 0; color: var(--sl-color-gray-2); }
+  .facts { list-style: none; padding: 0; margin: 0.5rem 0; font-size: var(--sl-text-sm); }
+  .facts li { display: flex; justify-content: space-between; gap: 1rem; margin: 0; padding: 0.15rem 0; border-bottom: 1px solid var(--sl-color-gray-6); }
+  .facts li span:first-child { color: var(--sl-color-gray-3); }
+  .rules code { margin-right: 0.3rem; }
+  .note { color: var(--sl-color-gray-3); font-size: var(--sl-text-sm); }
+  p { margin: 0.4rem 0; }
+</style>

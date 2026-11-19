@@ -1,0 +1,22 @@
+---
+title: What was measured
+description: The standard stack test and the cost shape, in relative figures.
+---
+import A4Result from '../../../components/A4Result.astro';
+import CostShape from '../../../components/CostShape.astro';
+
+The north star was one measured wiki change, an improvement to the standard, and a rerun. The full account is on the
+[North-Star business case](/results/north-star-business-case/) page. Two results since then:
+
+## The standard stack test failed its main endpoint
+
+<A4Result />
+
+The decision rule gives *adopted on mechanism only*, so `@8` stays opt-in. Limits: one author model, sessions
+confounded with the arm, blinding to the arm label and not to the page form, and sampled items.
+
+## The cost shape
+
+<CostShape />
+
+Operator time dominates the cost. A zero-overage cycle for paid AI is a target, not a result.

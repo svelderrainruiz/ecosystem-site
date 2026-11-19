@@ -1,0 +1,48 @@
+---
+import results from '../data/results.json';
+
+const { unsupported, retention } = results.a4;
+const W = 560;
+const barX = 190;
+const scale = (W - barX - 70) / 100;
+const rows = [
+  { label: 'Unsupported claims (primary)', note: 'failed', control: unsupported.control, treatment: unsupported.treatment },
+  { label: 'Supported claims retained', note: 'passed', control: retention.control, treatment: retention.treatment },
+];
+---
+<figure>
+  <svg viewBox={`0 0 ${W} 250`} role="img" aria-labelledby="a4-title a4-desc" xmlns="http://www.w3.org/2000/svg">
+    <title id="a4-title">A4-r2 result: the standard stack against the older standard</title>
+    <desc id="a4-desc">
+      Unsupported claims: {unsupported.control}% under the older standard and {unsupported.treatment}% under @8, so the primary
+      endpoint failed. Supported claims retained: {retention.control}% and {retention.treatment}%, which passed non-inferiority.
+    </desc>
+    {rows.map((r, i) => {
+      const y = 30 + i * 100;
+      return (
+        <g>
+          <text x="0" y={y} class="label">{r.label} ({r.note})</text>
+          <rect x={barX} y={y + 12} width={r.control * scale} height="22" class="control" />
+          <text x={barX + r.control * scale + 6} y={y + 28} class="value">{r.control}%</text>
+          <text x="0" y={y + 28} class="sub">Older standard (@5-era)</text>
+          <rect x={barX} y={y + 40} width={r.treatment * scale} height="22" class="treatment" />
+          <text x={barX + r.treatment * scale + 6} y={y + 56} class="value">{r.treatment}%</text>
+          <text x="0" y={y + 56} class="sub">@8 with anchored check</text>
+        </g>
+      );
+    })}
+    <text x="0" y="238" class="foot">18 pages, blind two-reviewer audit. @8 stays opt-in on mechanism only.</text>
+  </svg>
+  <figcaption>The primary endpoint had no room: the older standard was already at {unsupported.control}%. One author model.</figcaption>
+</figure>
+<style>
+  figure { margin: 1.5rem 0; }
+  svg { width: 100%; max-width: 640px; height: auto; }
+  .label { font-size: 14px; font-weight: 600; fill: var(--sl-color-white); }
+  .sub { font-size: 12px; fill: var(--sl-color-gray-3); }
+  .value { font-size: 13px; fill: var(--sl-color-white); }
+  .foot { font-size: 12px; fill: var(--sl-color-gray-3); }
+  .control { fill: var(--sl-color-gray-3); }
+  .treatment { fill: var(--sl-color-accent); }
+  figcaption { font-size: var(--sl-text-sm); color: var(--sl-color-gray-3); }
+</style>

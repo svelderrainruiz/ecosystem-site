@@ -1,0 +1,7 @@
+{
+  "a4": {
+    "unsupported": { "control": 2.8, "treatment": 3.3 },
+    "retention": { "control": 92.3, "treatment": 87.9 }
+  },
+  "costShare": { "ai": 10, "operator": 90 }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "ecosystem-site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.23.4"
+  },
+  "scripts": {
+    "status": "node scripts/gen-status.mjs",
+    "sync": "node scripts/sync-content.mjs",
+    "dev": "astro dev",
+    "build": "astro build && node scripts/check-site.mjs",
+    "check": "node scripts/check-site.mjs",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "8.1.6",
+    "@astrojs/starlight": "0.43.1",
+    "astro": "7.4.13"
+  }
+}

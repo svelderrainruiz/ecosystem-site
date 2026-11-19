@@ -1,0 +1,21 @@
+---
+title: Ecosystem
+description: The seven members, how they depend on each other, and the state of their wikis.
+---
+import MemberGrid from '../../components/MemberGrid.astro';
+import DependencyMap from '../../components/DependencyMap.astro';
+import status from '../../data/status.json';
+
+All members are pinned to the same wiki standard, `@8`. A pin is not conformance: each card shows what the RSR
+requirement registry holds for the member, counted from its last export. Status generated on {status.generated}
+from the registry, read-only.
+
+## Members
+
+<MemberGrid />
+
+## Dependencies
+
+<DependencyMap />
+
+The wikis are the source of truth. This site copies their public pages and never edits them.

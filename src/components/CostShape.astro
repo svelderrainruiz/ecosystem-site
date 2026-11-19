@@ -1,0 +1,29 @@
+---
+import results from '../data/results.json';
+
+const { ai, operator } = results.costShare;
+const W = 560;
+const aiW = (W * ai) / 100;
+---
+<figure>
+  <svg viewBox={`0 0 ${W} 110`} role="img" aria-labelledby="cs-title cs-desc" xmlns="http://www.w3.org/2000/svg">
+    <title id="cs-title">Cost shape across the program</title>
+    <desc id="cs-desc">AI is about {ai}% of total cost and operator time about {operator}%, from the KPI ledger.</desc>
+    <rect x="0" y="30" width={aiW} height="40" class="ai" />
+    <rect x={aiW} y="30" width={W - aiW} height="40" class="operator" />
+    <text x="0" y="22" class="label">AI: about {ai}%</text>
+    <text x={aiW + 8} y="55" class="inside">Operator time: about {operator}%</text>
+    <text x="0" y="98" class="foot">Share of total cost in the KPI ledger, 2026-11-19. Relative figures only.</text>
+  </svg>
+  <figcaption>Operator time dominates. The zero-overage cycle targets paid AI, which is the smaller share.</figcaption>
+</figure>
+<style>
+  figure { margin: 1.5rem 0; }
+  svg { width: 100%; max-width: 640px; height: auto; }
+  .label { font-size: 14px; font-weight: 600; fill: var(--sl-color-white); }
+  .inside { font-size: 14px; fill: var(--sl-color-black); font-weight: 600; }
+  .foot { font-size: 12px; fill: var(--sl-color-gray-3); }
+  .ai { fill: var(--sl-color-accent); }
+  .operator { fill: var(--sl-color-gray-2); }
+  figcaption { font-size: var(--sl-text-sm); color: var(--sl-color-gray-3); }
+</style>

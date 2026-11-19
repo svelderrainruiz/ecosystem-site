@@ -1,0 +1,61 @@
+[
+  {
+    "id": "repo-standards-review",
+    "name": "repo-standards-review (RSR)",
+    "role": "The standard every member is assessed against",
+    "visibility": "private",
+    "rules": ["rsr/ecosystem-wiki-standard@8", "rsr/registry-snapshot@1"]
+  },
+  {
+    "id": "projectbuddy",
+    "name": "projectbuddy",
+    "role": "VM, runner and SBOM engine; hosts the wiki generator and checker",
+    "visibility": "public",
+    "repo": "https://github.com/VITechnologies/projectbuddy",
+    "wiki": "https://github.com/VITechnologies/projectbuddy/wiki",
+    "remote": "https://github.com/VITechnologies/projectbuddy.wiki.git"
+  },
+  {
+    "id": "labview-benchmark-actor",
+    "name": "labview-benchmark-actor (LBA)",
+    "role": "VS Code extension for LabVIEW launch capture and benchmarking",
+    "visibility": "public",
+    "repo": "https://github.com/svelderrainruiz/labview-benchmark-actor",
+    "wiki": "https://github.com/svelderrainruiz/labview-benchmark-actor/wiki",
+    "remote": "https://github.com/svelderrainruiz/labview-benchmark-actor"
+  },
+  {
+    "id": "vi-history-suite",
+    "name": "vi-history-suite",
+    "role": "VS Code extension for VI history",
+    "visibility": "public",
+    "repo": "https://github.com/svelderrainruiz/vi-history-suite",
+    "wiki": "https://github.com/svelderrainruiz/vi-history-suite/wiki",
+    "remote": "https://github.com/svelderrainruiz/vi-history-suite"
+  },
+  {
+    "id": "mprr",
+    "name": "mprr",
+    "role": "The manual procedure record/replay transport, aligned to LBA's shared contract",
+    "visibility": "private",
+    "rules": ["rsr/ecosystem-wiki-standard", "rsr/wiki-profile@2", "observation check"]
+  },
+  {
+    "id": "lbabus",
+    "name": "lbabus",
+    "role": "The coordination bus CLI, split from LBA",
+    "visibility": "public",
+    "repo": "https://github.com/svelderrainruiz/lbabus",
+    "wiki": "https://github.com/svelderrainruiz/lbabus/wiki",
+    "remote": "https://github.com/svelderrainruiz/lbabus"
+  },
+  {
+    "id": "repo-standards-review-consumer-kit",
+    "name": "repo-standards-review-consumer-kit",
+    "role": "RSR's published consumer template (no requirements of its own)",
+    "visibility": "public",
+    "repo": "https://github.com/svelderrainruiz/repo-standards-review-consumer-kit",
+    "wiki": "https://github.com/svelderrainruiz/repo-standards-review-consumer-kit/wiki",
+    "remote": "https://github.com/svelderrainruiz/repo-standards-review-consumer-kit"
+  }
+]

@@ -1,0 +1,83 @@
+{
+  "generated": "2026-11-19",
+  "source": "RSR requirement registry, read-only",
+  "members": [
+    {
+      "id": "repo-standards-review",
+      "exported": true,
+      "scopes": {
+        "software": 48,
+        "system": 26,
+        "test": 74
+      },
+      "edges": 83,
+      "lastExport": "2026-11-13"
+    },
+    {
+      "id": "projectbuddy",
+      "exported": true,
+      "scopes": {
+        "software": 133,
+        "system": 35,
+        "test": 133
+      },
+      "edges": 371,
+      "lastExport": "2026-11-19",
+      "revision": "a1e6f4c",
+      "ref": "master"
+    },
+    {
+      "id": "labview-benchmark-actor",
+      "exported": false,
+      "scopes": {},
+      "edges": 0,
+      "lastExport": null
+    },
+    {
+      "id": "vi-history-suite",
+      "exported": true,
+      "scopes": {
+        "software": 141
+      },
+      "edges": 0,
+      "lastExport": "2026-11-19",
+      "revision": "232d551",
+      "ref": "develop"
+    },
+    {
+      "id": "mprr",
+      "exported": true,
+      "scopes": {
+        "software": 184,
+        "test": 148
+      },
+      "edges": 382,
+      "lastExport": "2026-11-19"
+    },
+    {
+      "id": "lbabus",
+      "exported": true,
+      "scopes": {
+        "software": 8,
+        "test": 8
+      },
+      "edges": 8,
+      "lastExport": "2026-11-19",
+      "revision": "7ed2806",
+      "ref": "develop"
+    },
+    {
+      "id": "repo-standards-review-consumer-kit",
+      "exported": true,
+      "scopes": {
+        "software": 0,
+        "system": 0,
+        "test": 0
+      },
+      "edges": 0,
+      "lastExport": "2026-11-19",
+      "revision": "a7df0a0",
+      "ref": "main"
+    }
+  ]
+}
