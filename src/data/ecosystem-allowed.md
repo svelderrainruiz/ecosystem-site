@@ -8,10 +8,10 @@ local RSR requirement-registry constellation; this page is the human-readable li
 | --- | --- | --- | --- |
 | [repo-standards-review](https://gitlab.com/svelderrainruiz/repo-standards-review) | the standard every member is assessed against | private | private; [public summary](RSR-Summary) |
 | [projectbuddy](https://github.com/VITechnologies/projectbuddy) | VM, runner and SBOM engine; hosts the wiki generator | public | standardized |
-| [labview-benchmark-actor](https://github.com/svelderrainruiz/labview-benchmark-actor) | VS Code extension for LabVIEW launch capture and benchmarking, released on the Marketplace | public | generated from docs; standardization planned |
-| [vi-history-suite](https://github.com/svelderrainruiz/vi-history-suite) | VS Code extension for VI history; a Marketplace release needs a CI change | public | planned |
+| [labview-benchmark-actor](https://github.com/svelderrainruiz/labview-benchmark-actor) | VS Code extension for LabVIEW launch capture and benchmarking, released on the Marketplace | public | standardized (registry export at 0fdb27d) |
+| [vi-history-suite](https://github.com/svelderrainruiz/vi-history-suite) | VS Code extension for VI history; a Marketplace release needs a CI change | public | standardized (registry export at 232d551) |
 | [mprr](https://gitlab.com/svelderrainruiz/mprr) | aligned to labview-benchmark-actor's shared contract | private | private; [public summary](mprr-Summary) |
-| [lbabus](https://github.com/svelderrainruiz/lbabus) | coordination bus split from labview-benchmark-actor | public | planned |
-| [repo-standards-review-consumer-kit](https://github.com/svelderrainruiz/repo-standards-review-consumer-kit) | RSR's published consumer template | public | planned |
+| [lbabus](https://github.com/svelderrainruiz/lbabus) | coordination bus split from labview-benchmark-actor | public | standardized (registry export at bc555c3) |
+| [repo-standards-review-consumer-kit](https://github.com/svelderrainruiz/repo-standards-review-consumer-kit) | RSR's published consumer template | public | standardized, no requirements of its own (registry export at a7df0a0) |
 
 Private members follow the same wiki standard; stakeholders see a public summary page for each.

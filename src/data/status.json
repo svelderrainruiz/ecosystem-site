@@ -32,10 +32,15 @@
     },
     {
       "id": "labview-benchmark-actor",
-      "exported": false,
-      "scopes": {},
-      "edges": 0,
-      "lastExport": null,
+      "exported": true,
+      "scopes": {
+        "software": 103,
+        "test": 103
+      },
+      "edges": 103,
+      "lastExport": "2026-11-19",
+      "revision": "0fdb27d",
+      "ref": "develop",
       "pin": {
         "tag": "v0.12.0",
         "commit": "49dfa31"
