@@ -2,11 +2,14 @@
 
 A static stakeholder site: Astro Starlight with `@astrojs/mdx`. MDX is used only here, never in anything the wiki
 standard governs. Content comes from public sources only: the projectbuddy wiki, the public members' wiki Home pages,
-and `status.json`, generated read-only from the RSR requirement registry.
+each public member's `.repo-standards-review.json`, and `status.json`, generated read-only from the RSR requirement
+registry. The sync clones anonymously (credential helpers are disabled), so a repository that is not public fails the
+sync instead of being read. The revision on a card is the newest snapshot's, chosen by timestamp; a scope that did not
+change keeps its earlier snapshot.
 
 ```bash
 npm ci --ignore-scripts          # exact, locked install
-npm run status                   # regenerate src/data/status.json (read-only psql SELECTs; needs the local registry)
+npm run status                   # regenerate src/data/status.json (read-only psql SELECTs, public pin files over https; needs the local registry)
 npm run sync                     # re-copy the public wiki pages into src/content/docs
 npm run build                    # astro build, then scripts/check-site.mjs
 ```

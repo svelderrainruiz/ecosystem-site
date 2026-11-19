@@ -9,11 +9,11 @@ const nodes = {
 const box = (n) => ({ cx: n.x + n.w / 2, cy: n.y + 22 });
 ---
 <figure>
-  <svg viewBox="0 0 540 340" role="img" aria-labelledby="dm-title dm-desc" xmlns="http://www.w3.org/2000/svg">
+  <svg viewBox="0 0 540 362" role="img" aria-labelledby="dm-title dm-desc" xmlns="http://www.w3.org/2000/svg">
     <title id="dm-title">Member dependency map</title>
     <desc id="dm-desc">
-      repo-standards-review publishes the consumer kit. labview-benchmark-actor consumes lbabus. mprr is the record and replay
-      protocol, aligned to labview-benchmark-actor's shared contract.
+      repo-standards-review publishes the consumer kit. labview-benchmark-actor consumes lbabus. mprr and labview-benchmark-actor
+      share a record and replay contract.
     </desc>
     <defs>
       <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
@@ -24,7 +24,7 @@ const box = (n) => ({ cx: n.x + n.w / 2, cy: n.y + 22 });
     <text x="250" y="44" class="elabel" text-anchor="middle">publishes</text>
     <line x1="125" y1="192" x2="125" y2="280" class="edge" marker-end="url(#arrow)" />
     <text x="133" y="240" class="elabel">consumes</text>
-    <line x1="330" y1="192" x2="220" y2="192" class="edge dashed" marker-end="url(#arrow)" />
+    <line x1="330" y1="192" x2="220" y2="192" class="edge dashed" />
     <text x="275" y="184" class="elabel" text-anchor="middle">shared contract</text>
     {Object.values(nodes).map((n) => (
       <g>
@@ -32,7 +32,7 @@ const box = (n) => ({ cx: n.x + n.w / 2, cy: n.y + 22 });
         <text x={n.x + n.w / 2} y={n.y + 27} text-anchor="middle" class="nlabel">{n.label}</text>
       </g>
     ))}
-    <text x="30" y="332" class="foot">projectbuddy hosts the wiki checker; every member is assessed against the RSR standard.</text>
+    <text x="30" y="352" class="foot">projectbuddy hosts the wiki checker; every member is assessed against the RSR standard.</text>
   </svg>
   <figcaption>Each arrow follows the relation written on it. mprr is a private member.</figcaption>
 </figure>

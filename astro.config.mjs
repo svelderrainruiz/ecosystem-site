@@ -19,6 +19,7 @@ export default defineConfig({
         {
           label: 'Members',
           items: [
+            { slug: 'members/rsr-summary' },
             { slug: 'members/labview-benchmark-actor' },
             { slug: 'members/vi-history-suite' },
             { slug: 'members/lbabus' },

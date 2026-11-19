@@ -4,7 +4,8 @@
     "name": "repo-standards-review (RSR)",
     "role": "The standard every member is assessed against",
     "visibility": "private",
-    "rules": ["rsr/ecosystem-wiki-standard@8", "rsr/registry-snapshot@1"]
+    "rules": ["rsr/ecosystem-wiki-standard@8", "rsr/registry-snapshot@1"],
+    "summary": "/members/rsr-summary/"
   },
   {
     "id": "projectbuddy",
@@ -13,7 +14,8 @@
     "visibility": "public",
     "repo": "https://github.com/VITechnologies/projectbuddy",
     "wiki": "https://github.com/VITechnologies/projectbuddy/wiki",
-    "remote": "https://github.com/VITechnologies/projectbuddy.wiki.git"
+    "remote": "https://github.com/VITechnologies/projectbuddy.wiki.git",
+    "pinFile": "https://raw.githubusercontent.com/VITechnologies/projectbuddy/develop/.repo-standards-review.json"
   },
   {
     "id": "labview-benchmark-actor",
@@ -22,7 +24,8 @@
     "visibility": "public",
     "repo": "https://github.com/svelderrainruiz/labview-benchmark-actor",
     "wiki": "https://github.com/svelderrainruiz/labview-benchmark-actor/wiki",
-    "remote": "https://github.com/svelderrainruiz/labview-benchmark-actor"
+    "remote": "https://github.com/svelderrainruiz/labview-benchmark-actor",
+    "pinFile": "https://raw.githubusercontent.com/svelderrainruiz/labview-benchmark-actor/develop/.repo-standards-review.json"
   },
   {
     "id": "vi-history-suite",
@@ -31,14 +34,16 @@
     "visibility": "public",
     "repo": "https://github.com/svelderrainruiz/vi-history-suite",
     "wiki": "https://github.com/svelderrainruiz/vi-history-suite/wiki",
-    "remote": "https://github.com/svelderrainruiz/vi-history-suite"
+    "remote": "https://github.com/svelderrainruiz/vi-history-suite",
+    "pinFile": "https://raw.githubusercontent.com/svelderrainruiz/vi-history-suite/develop/.repo-standards-review.json"
   },
   {
     "id": "mprr",
     "name": "mprr",
     "role": "The manual procedure record/replay transport, aligned to LBA's shared contract",
     "visibility": "private",
-    "rules": ["rsr/ecosystem-wiki-standard", "rsr/wiki-profile@2", "observation check"]
+    "rules": ["rsr/ecosystem-wiki-standard", "rsr/wiki-profile@2", "observation check"],
+    "summary": "/members/mprr-summary/"
   },
   {
     "id": "lbabus",
@@ -47,7 +52,8 @@
     "visibility": "public",
     "repo": "https://github.com/svelderrainruiz/lbabus",
     "wiki": "https://github.com/svelderrainruiz/lbabus/wiki",
-    "remote": "https://github.com/svelderrainruiz/lbabus"
+    "remote": "https://github.com/svelderrainruiz/lbabus",
+    "pinFile": "https://raw.githubusercontent.com/svelderrainruiz/lbabus/develop/.repo-standards-review.json"
   },
   {
     "id": "repo-standards-review-consumer-kit",

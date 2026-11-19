@@ -19,6 +19,7 @@ const wikis = {
 // page: [wiki, source file, destination under docs/, sidebar label]
 const pages = [
   ['projectbuddy', 'North-Star-Business-Case.md', 'results/north-star-business-case.md', 'North-Star business case'],
+  ['projectbuddy', 'RSR-Summary.md', 'members/rsr-summary.md', 'RSR (public summary)'],
   ['projectbuddy', 'mprr-Summary.md', 'members/mprr-summary.md', 'mprr (public summary)'],
   ['lba', 'Home.md', 'members/labview-benchmark-actor.md', 'labview-benchmark-actor wiki'],
   ['vihs', 'Home.md', 'members/vi-history-suite.md', 'vi-history-suite wiki'],
@@ -27,14 +28,17 @@ const pages = [
 ];
 
 // Wiki page names that exist on the site map to site paths. Any other wiki link goes to the wiki itself.
-const sitePages = { 'mprr-Summary': '/members/mprr-summary/', 'North-Star-Business-Case': '/results/north-star-business-case/', Ecosystem: '/ecosystem/' };
+const sitePages = { 'RSR-Summary': '/members/rsr-summary/', 'mprr-Summary': '/members/mprr-summary/', 'North-Star-Business-Case': '/results/north-star-business-case/', Ecosystem: '/ecosystem/' };
 const wikiUrl = { projectbuddy: 'https://github.com/VITechnologies/projectbuddy/wiki', lba: 'https://github.com/svelderrainruiz/labview-benchmark-actor/wiki', vihs: 'https://github.com/svelderrainruiz/vi-history-suite/wiki', lbabus: 'https://github.com/svelderrainruiz/lbabus/wiki', kit: 'https://github.com/svelderrainruiz/repo-standards-review-consumer-kit/wiki' };
 
 const tmp = mkdtempSync(join(tmpdir(), 'eco-sync-'));
 const clones = {};
 for (const [key, url] of Object.entries(wikis)) {
   const dir = join(tmp, key);
-  execFileSync('git', ['clone', '--quiet', '--depth', '1', url, dir], { stdio: 'inherit' });
+  execFileSync('git', ['-c', 'credential.helper=', 'clone', '--quiet', '--depth', '1', url, dir], {
+    stdio: 'inherit',
+    env: { ...process.env, GIT_TERMINAL_PROMPT: '0', GIT_ASKPASS: '/bin/false' },
+  });
   clones[key] = { dir, commit: execFileSync('git', ['-C', dir, 'rev-parse', '--short', 'HEAD'], { encoding: 'utf8' }).trim() };
 }
 

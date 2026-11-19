@@ -1,0 +1,13 @@
+---
+import status from '../data/status.json';
+
+const tags = status.members.flatMap((m) => (m.pin ? [m.pin.tag] : []));
+const counts = Object.entries(tags.reduce((acc, tag) => ({ ...acc, [tag]: (acc[tag] ?? 0) + 1 }), {}));
+---
+<p>
+  {counts.length === 1
+    ? <>The {tags.length} public consumers pin one RSR release, <code>{counts[0][0]}</code>, read from each repository's <code>.repo-standards-review.json</code> on <code>develop</code>.</>
+    : <>The public consumers pin different RSR releases: {counts.map(([tag, n], i) => <>{i ? ', ' : ''}<code>{tag}</code> ({n})</>)}.</>}{' '}
+  A pin is not conformance: each card shows what the RSR requirement registry holds for the member, counted from its last
+  export. Status generated on {status.generated} from the registry, read-only.
+</p>

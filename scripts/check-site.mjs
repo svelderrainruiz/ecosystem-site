@@ -87,7 +87,7 @@ for (const m of members.filter((x) => x.visibility === 'private')) {
   const s = status.members.find((x) => x.id === m.id);
   const extra = Object.keys(s ?? {}).filter((k) => !['id', 'exported', 'scopes', 'edges', 'lastExport'].includes(k));
   if (extra.length) fail('src/data/status.json', `private member ${m.id} carries ${extra.join(', ')}`);
-  const extraMember = Object.keys(m).filter((k) => !['id', 'name', 'role', 'visibility', 'rules'].includes(k));
+  const extraMember = Object.keys(m).filter((k) => !['id', 'name', 'role', 'visibility', 'rules', 'summary'].includes(k));
   if (extraMember.length) fail('src/data/members.json', `private member ${m.id} carries ${extraMember.join(', ')}`);
 }
 

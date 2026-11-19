@@ -6,12 +6,12 @@
       "id": "repo-standards-review",
       "exported": true,
       "scopes": {
-        "software": 48,
+        "software": 76,
         "system": 26,
-        "test": 74
+        "test": 83
       },
-      "edges": 83,
-      "lastExport": "2026-11-13"
+      "edges": 116,
+      "lastExport": "2026-11-19"
     },
     {
       "id": "projectbuddy",
@@ -24,14 +24,22 @@
       "edges": 371,
       "lastExport": "2026-11-19",
       "revision": "a1e6f4c",
-      "ref": "master"
+      "ref": "master",
+      "pin": {
+        "tag": "v0.12.0",
+        "commit": "49dfa31"
+      }
     },
     {
       "id": "labview-benchmark-actor",
       "exported": false,
       "scopes": {},
       "edges": 0,
-      "lastExport": null
+      "lastExport": null,
+      "pin": {
+        "tag": "v0.12.0",
+        "commit": "49dfa31"
+      }
     },
     {
       "id": "vi-history-suite",
@@ -42,7 +50,11 @@
       "edges": 0,
       "lastExport": "2026-11-19",
       "revision": "232d551",
-      "ref": "develop"
+      "ref": "develop",
+      "pin": {
+        "tag": "v0.12.0",
+        "commit": "49dfa31"
+      }
     },
     {
       "id": "mprr",
@@ -63,8 +75,12 @@
       },
       "edges": 8,
       "lastExport": "2026-11-19",
-      "revision": "7ed2806",
-      "ref": "develop"
+      "revision": "bc555c3",
+      "ref": "develop",
+      "pin": {
+        "tag": "v0.12.0",
+        "commit": "49dfa31"
+      }
     },
     {
       "id": "repo-standards-review-consumer-kit",

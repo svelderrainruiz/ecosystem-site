@@ -6,7 +6,7 @@ local RSR requirement-registry constellation; this page is the human-readable li
 
 | Repository | Role | Visibility | Wiki |
 | --- | --- | --- | --- |
-| [repo-standards-review](https://gitlab.com/svelderrainruiz/repo-standards-review) | the standard every member is assessed against | private | public summary planned |
+| [repo-standards-review](https://gitlab.com/svelderrainruiz/repo-standards-review) | the standard every member is assessed against | private | private; [public summary](RSR-Summary) |
 | [projectbuddy](https://github.com/VITechnologies/projectbuddy) | VM, runner and SBOM engine; hosts the wiki generator | public | standardized |
 | [labview-benchmark-actor](https://github.com/svelderrainruiz/labview-benchmark-actor) | VS Code extension for LabVIEW launch capture and benchmarking, released on the Marketplace | public | generated from docs; standardization planned |
 | [vi-history-suite](https://github.com/svelderrainruiz/vi-history-suite) | VS Code extension for VI history; a Marketplace release needs a CI change | public | planned |
