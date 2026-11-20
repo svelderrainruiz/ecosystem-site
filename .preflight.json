@@ -1,0 +1,76 @@
+{
+  "license": "0BSD",
+  "legacy_tip": null,
+  "allow": [
+    {
+      "path": "README.md",
+      "rule": "configured_private_name",
+      "reason": "already public on the live site as a member name; counts only"
+    },
+    {
+      "path": "astro.config.mjs",
+      "rule": "configured_private_name",
+      "reason": "already public on the live site as a member name; counts only"
+    },
+    {
+      "path": "scripts/gen-status.mjs",
+      "rule": "configured_private_name",
+      "reason": "already public on the live site as a member name; counts only"
+    },
+    {
+      "path": "scripts/sync-content.mjs",
+      "rule": "configured_private_name",
+      "reason": "already public on the live site as a member name; counts only"
+    },
+    {
+      "path": "src/components/DependencyMap.astro",
+      "rule": "configured_private_name",
+      "reason": "already public on the live site as a member name; counts only"
+    },
+    {
+      "path": "src/components/PinSummary.astro",
+      "rule": "configured_private_name",
+      "reason": "already public on the live site as a member name; counts only"
+    },
+    {
+      "path": "src/content/docs/members/mprr-summary.md",
+      "rule": "configured_private_name",
+      "reason": "already public on the live site as a member name; counts only"
+    },
+    {
+      "path": "src/content/docs/members/repo-standards-review-consumer-kit.md",
+      "rule": "configured_private_name",
+      "reason": "already public on the live site as a member name; counts only"
+    },
+    {
+      "path": "src/content/docs/members/rsr-summary.md",
+      "rule": "configured_private_name",
+      "reason": "already public on the live site as a member name; counts only"
+    },
+    {
+      "path": "src/content/docs/results/north-star-business-case.md",
+      "rule": "configured_private_name",
+      "reason": "already public on the live site as a member name; counts only"
+    },
+    {
+      "path": "src/data/ecosystem-allowed.md",
+      "rule": "configured_private_name",
+      "reason": "already public on the live site as a member name; counts only"
+    },
+    {
+      "path": "src/data/members.json",
+      "rule": "configured_private_name",
+      "reason": "already public on the live site as a member name; counts only"
+    },
+    {
+      "path": "src/data/status.json",
+      "rule": "configured_private_name",
+      "reason": "already public on the live site as a member name; counts only"
+    },
+    {
+      "path": "src/data/test-pages.json",
+      "rule": "configured_private_name",
+      "reason": "already public on the live site as a member name; counts only"
+    }
+  ]
+}
