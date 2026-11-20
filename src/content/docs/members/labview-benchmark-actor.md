@@ -5,7 +5,7 @@ sidebar:
 editUrl: false
 ---
 
-*Source: the lba wiki, `Home.md` at commit `7ca3e9f`. This page is copied as it stands, links to wiki pages that the site doesn't carry go to the wiki.*
+*Source: the lba wiki, `Home.md` at commit `3bcdbdd`. This page is copied as it stands, links to wiki pages that the site doesn't carry go to the wiki.*
 
 The spec-driven documentation of [labview-benchmark-actor](https://github.com/svelderrainruiz/labview-benchmark-actor), a VS Code extension for benchmarking LabVIEW across Codespaces, golden VMs, and a coordination mesh.
 
@@ -18,7 +18,7 @@ Every page is generated from the repository's `docs/` folder on `develop` by `wi
 - [Software-Requirements-Specification](https://github.com/svelderrainruiz/labview-benchmark-actor/wiki/Software-Requirements-Specification): 103 requirements, one page each under `requirements/`.
 - [Requirements-Traceability-Matrix](https://github.com/svelderrainruiz/labview-benchmark-actor/wiki/Requirements-Traceability-Matrix): each requirement with its status and tests.
 - [Architecture-Packet](https://github.com/svelderrainruiz/labview-benchmark-actor/wiki/Architecture-Packet): the architecture description; 90 decisions in [ADR-Index](https://github.com/svelderrainruiz/labview-benchmark-actor/wiki/ADR-Index).
-- [Test-Plan](https://github.com/svelderrainruiz/labview-benchmark-actor/wiki/Test-Plan): 103 test items, one stub page each under `tests/`.
+- [Test-Plan](https://github.com/svelderrainruiz/labview-benchmark-actor/wiki/Test-Plan): 103 test items, one page each under `tests/`: 97 canonical, 6 stub.
 
 ## Information for users
 
