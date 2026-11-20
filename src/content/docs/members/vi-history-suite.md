@@ -7,6 +7,8 @@ editUrl: false
 
 *Source: the vihs wiki, `Home.md` at commit `712c018`. This page is copied as it stands, links to wiki pages that the site doesn't carry go to the wiki.*
 
+Granularity: 22 per-case plus 115 file-level canonical test pages, 4 stub. The copied text below says canonical for both.
+
 The spec-driven documentation of [vi-history-suite](https://github.com/svelderrainruiz/vi-history-suite).
 
 Every page is generated from the repository's `docs/` folder on `develop` by `wiki_generate.py`. Edit `docs/`, not these pages; a change made here is overwritten.

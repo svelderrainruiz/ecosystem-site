@@ -61,16 +61,6 @@ function convert(key, text) {
   return { title, body: body.trimStart() };
 }
 
-for (const [key, file, dest, label] of pages) {
-  const { title, body } = convert(key, readFileSync(join(clones[key].dir, file), 'utf8'));
-  const front = ['---', `title: ${JSON.stringify(title)}`, `sidebar:\n  label: ${JSON.stringify(label)}`,
-    `editUrl: false`, `---`, '',
-    `*Source: the ${key} wiki, \`${file}\` at commit \`${clones[key].commit}\`. This page is copied as it stands, links to wiki pages that the site doesn't carry go to the wiki.*`, ''].join('\n');
-  mkdirSync(join(docs, dest, '..'), { recursive: true });
-  writeFileSync(join(docs, dest), `${front}\n${body}`);
-  console.log(`${dest} <- ${key}/${file}@${clones[key].commit}`);
-}
-
 // Test pages per member: a page under tests/ is a stub when it carries the page-kind: stub marker, file-level when its title
 // says so, otherwise per-case canonical.
 // A private member's counts are only what its public summary page states.
@@ -91,6 +81,18 @@ const rsrTests = /\*\*Tests:\*\*[^\n]*?(\d+) canonical[^\n]*?(\d+) stubs?/.exec(
 if (!rsrTests) throw new Error('RSR-Summary.md no longer states "N canonical ... M stubs" on its Tests line');
 testPages['repo-standards-review'] = { canonical: Number(rsrTests[1]), fileLevel: 0, stub: Number(rsrTests[2]) };
 writeFileSync(join(root, 'src/data/test-pages.json'), `${JSON.stringify(testPages, null, 2)}\n`);
+
+for (const [key, file, dest, label] of pages) {
+  const { title, body } = convert(key, readFileSync(join(clones[key].dir, file), 'utf8'));
+  const front = ['---', `title: ${JSON.stringify(title)}`, `sidebar:\n  label: ${JSON.stringify(label)}`,
+    `editUrl: false`, `---`, '',
+    `*Source: the ${key} wiki, \`${file}\` at commit \`${clones[key].commit}\`. This page is copied as it stands, links to wiki pages that the site doesn't carry go to the wiki.*`, ''].join('\n');
+  const tp = testPages[memberOfWiki[key]];
+  const note = tp?.fileLevel > 0 ? [`Granularity: ${tp.canonical} per-case plus ${tp.fileLevel} file-level canonical test pages, ${tp.stub} stub. The copied text below says canonical for both.`, '', ''] : [];
+  mkdirSync(join(docs, dest, '..'), { recursive: true });
+  writeFileSync(join(docs, dest), `${front}\n${note.join('\n')}${body}`);
+  console.log(`${dest} <- ${key}/${file}@${clones[key].commit}`);
+}
 
 // The Ecosystem page is the authority for which private names may appear on the site; the leak check reads this copy.
 mkdirSync(join(root, 'src/data'), { recursive: true });
