@@ -71,7 +71,8 @@ for (const [key, file, dest, label] of pages) {
   console.log(`${dest} <- ${key}/${file}@${clones[key].commit}`);
 }
 
-// Test pages per member: a page under tests/ is a stub when it carries the page-kind: stub marker, otherwise canonical.
+// Test pages per member: a page under tests/ is a stub when it carries the page-kind: stub marker, file-level when its title
+// says so, otherwise per-case canonical.
 // A private member's counts are only what its public summary page states.
 const memberOfWiki = { projectbuddy: 'projectbuddy', lba: 'labview-benchmark-actor', vihs: 'vi-history-suite', lbabus: 'lbabus', kit: 'repo-standards-review-consumer-kit' };
 const testPages = {};
@@ -79,12 +80,16 @@ for (const [key, id] of Object.entries(memberOfWiki)) {
   const dir = join(clones[key].dir, 'tests');
   let files = [];
   try { files = readdirSync(dir).filter((f) => f.endsWith('.md')); } catch { /* no tests/ directory */ }
-  const stub = files.filter((f) => /^<!--\s*page-kind:\s*stub\s*-->/m.test(readFileSync(join(dir, f), 'utf8'))).length;
-  testPages[id] = { canonical: files.length - stub, stub };
+  const texts = files.map((f) => readFileSync(join(dir, f), 'utf8'));
+  const isStub = (t) => /^<!--\s*page-kind:\s*stub\s*-->/m.test(t);
+  const stub = texts.filter(isStub).length;
+  // A file-level page names its granularity in the title ("# TEST-001: evidence granularity: file"); the rest are per-case.
+  const fileLevel = texts.filter((t) => !isStub(t) && /^# .*evidence granularity: file\s*$/m.test(t)).length;
+  testPages[id] = { canonical: files.length - stub - fileLevel, fileLevel, stub };
 }
 const rsrTests = /\*\*Tests:\*\*[^\n]*?(\d+) canonical[^\n]*?(\d+) stubs?/.exec(readFileSync(join(clones.projectbuddy.dir, 'RSR-Summary.md'), 'utf8'));
 if (!rsrTests) throw new Error('RSR-Summary.md no longer states "N canonical ... M stubs" on its Tests line');
-testPages['repo-standards-review'] = { canonical: Number(rsrTests[1]), stub: Number(rsrTests[2]) };
+testPages['repo-standards-review'] = { canonical: Number(rsrTests[1]), fileLevel: 0, stub: Number(rsrTests[2]) };
 writeFileSync(join(root, 'src/data/test-pages.json'), `${JSON.stringify(testPages, null, 2)}\n`);
 
 // The Ecosystem page is the authority for which private names may appear on the site; the leak check reads this copy.

@@ -5,7 +5,7 @@ sidebar:
 editUrl: false
 ---
 
-*Source: the projectbuddy wiki, `RSR-Summary.md` at commit `2077689`. This page is copied as it stands, links to wiki pages that the site doesn't carry go to the wiki.*
+*Source: the projectbuddy wiki, `RSR-Summary.md` at commit `e961433`. This page is copied as it stands, links to wiki pages that the site doesn't carry go to the wiki.*
 
 `repo-standards-review` (RSR) is the standard every [ecosystem](/ecosystem-site/ecosystem/) member is assessed against. Its own repository and wiki are private, so this page is the public summary that the ecosystem wiki standard asks a private member to publish.
 
