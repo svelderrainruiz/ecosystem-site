@@ -6,7 +6,7 @@ local RSR requirement-registry constellation; this page is the human-readable li
 
 | Repository | Role | Visibility | Wiki |
 | --- | --- | --- | --- |
-| [repo-standards-review](https://gitlab.com/svelderrainruiz/repo-standards-review) | the standard every member is assessed against | private | private; 76 requirement pages and 83 test pages (32 canonical, 51 stub), not exported to the registry; [public summary](RSR-Summary) |
+| [repo-standards-review](https://gitlab.com/svelderrainruiz/repo-standards-review) | the standard every member is assessed against | private | private; 76 requirement pages and 83 test pages (38 canonical, 45 stub), not exported to the registry; [public summary](RSR-Summary) |
 | [projectbuddy](https://github.com/VITechnologies/projectbuddy) | VM, runner and SBOM engine; hosts the wiki generator | public | standardized; 133 requirement pages (1 retired), 35 system pages, 133 test pages (96 canonical, 37 stub); registry export at ac8352d |
 | [labview-benchmark-actor](https://github.com/svelderrainruiz/labview-benchmark-actor) | VS Code extension for LabVIEW launch capture and benchmarking, released on the Marketplace | public | standardized; 103 requirement pages and 103 test pages (97 canonical, 6 stub); registry export at 3bcdbdd |
 | [vi-history-suite](https://github.com/svelderrainruiz/vi-history-suite) | VS Code extension for VI history; a Marketplace release needs a CI change | public | standardized; 141 requirement pages and 141 test pages (22 per-case plus 115 file-level canonical, 4 stub); registry export at 712c018 |
