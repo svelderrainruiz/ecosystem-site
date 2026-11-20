@@ -9,6 +9,8 @@ const member = members.find((m) => m.id === id);
 if (!member) throw new Error(`Unknown member: ${id}`);
 const s = status.members.find((m) => m.id === id);
 const tp = testPages[id];
+const tpTotal = tp ? tp.canonical + tp.fileLevel + tp.stub : 0;
+const tpText = tp && (tp.fileLevel > 0 ? `${tp.canonical} per-case plus ${tp.fileLevel} file-level canonical, ${tp.stub} stub` : `${tp.canonical} canonical, ${tp.stub} stub`);
 const isPublic = member.visibility === 'public';
 const scopes = Object.entries(s?.scopes ?? {}).filter(([, count]) => count > 0);
 const scopeLabel = { software: 'Software requirements', system: 'System requirements', test: 'Tests' };
@@ -25,7 +27,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <li><span>Registry export</span>{' '}<span>{s?.exported ? `last on ${s.lastExport}` : 'none yet'}</span></li>
     {isPublic && s?.revision && (<li><span>Exported revision</span>{' '}<span><code>{s.revision}</code></span></li>)}
     {scopes.map(([scope, count]) => (<li><span>{scopeLabel[scope] ?? scope}</span>{' '}<span>{count}</span></li>))}
-    {tp && tp.canonical + tp.stub > 0 && (<li><span>Test pages</span>{' '}<span>{tp.canonical} canonical, {tp.stub} stub</span></li>)}
+    {tpTotal > 0 && (<li><span>Test pages</span>{' '}<span>{tpText}</span></li>)}
     {s?.edges ? (<li><span>Trace links</span>{' '}<span>{s.edges}</span></li>) : null}
   </ul>
   {!isPublic && member.rules && (

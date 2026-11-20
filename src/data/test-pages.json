@@ -1,26 +1,32 @@
 {
   "projectbuddy": {
     "canonical": 96,
+    "fileLevel": 0,
     "stub": 37
   },
   "labview-benchmark-actor": {
     "canonical": 97,
+    "fileLevel": 0,
     "stub": 6
   },
   "vi-history-suite": {
     "canonical": 22,
-    "stub": 0
+    "fileLevel": 115,
+    "stub": 4
   },
   "lbabus": {
     "canonical": 8,
+    "fileLevel": 0,
     "stub": 0
   },
   "repo-standards-review-consumer-kit": {
     "canonical": 0,
+    "fileLevel": 0,
     "stub": 0
   },
   "repo-standards-review": {
     "canonical": 32,
+    "fileLevel": 0,
     "stub": 51
   }
 }

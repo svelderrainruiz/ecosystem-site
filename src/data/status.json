@@ -51,11 +51,11 @@
       "exported": true,
       "scopes": {
         "software": 141,
-        "test": 22
+        "test": 141
       },
-      "edges": 25,
+      "edges": 144,
       "lastExport": "2026-11-20",
-      "revision": "bca1bc7",
+      "revision": "712c018",
       "ref": "develop",
       "pin": {
         "tag": "v0.14.0",

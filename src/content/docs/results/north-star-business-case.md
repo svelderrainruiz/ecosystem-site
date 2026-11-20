@@ -5,7 +5,7 @@ sidebar:
 editUrl: false
 ---
 
-*Source: the projectbuddy wiki, `North-Star-Business-Case.md` at commit `2077689`. This page is copied as it stands, links to wiki pages that the site doesn't carry go to the wiki.*
+*Source: the projectbuddy wiki, `North-Star-Business-Case.md` at commit `e961433`. This page is copied as it stands, links to wiki pages that the site doesn't carry go to the wiki.*
 
 This is the public summary of the north star (VITechnologies/projectbuddy#328): one measured lbabus wiki change, an
 improvement to the standard, and a rerun. Figures are relative. The full case, with absolute figures and the
@@ -96,6 +96,56 @@ authors, the earlier labelling, and the author model (VITechnologies/projectbudd
 - the control used a shape-only gate, so the arms differ in standard text and in gate;
 - items on each page were sampled (at most 12 a page), so the figures are weighted estimates;
 - agreement between reviewers on unsupported claims was good, not high (kappa 0.60).
+
+### Iteration 5: what a local GPU is worth
+
+Figures are relative. Each number is labelled measured, estimate or to be measured. The ceiling is not a saving.
+
+#### Key figures
+
+| KPI | Definition | Current value | Status |
+|---|---|---|---|
+| Addressable ceiling | Share of paid AI spend in retrieval and memory calls, the work a local model is used for | 12.5% of paid AI (upper bound) | measured |
+| That ceiling as a share of total program cost | Ceiling times the page's own AI share of total cost (about 10%) | about 1% | estimate |
+| Context-feasible ceiling, 32,000-token window | Share of those calls' spend whose input fits in 32,000 tokens, times the ceiling | 2.5% of the 12.5%, about 0.3% of paid AI | measured |
+| Context-feasible ceiling, 128,000-token window | Same, for 128,000 tokens | 18.1% of the 12.5%, about 2.3% of paid AI | measured |
+| Realized share | Share of AI work that ran on local assets | about 0% | measured |
+| Quality gate | Accuracy of the best local judge on audited claim labels, against the bar | 0.78 (upper bound 0.87) against 0.90 | measured on the workstation; the operator-owned AI computer is to be measured |
+| Cost per million tokens, local against paid | Local cost (power and hardware) over tokens generated, against the paid price | not available | to be measured |
+
+The ceiling is not a saving. It assumes a local model that serves those contexts at the quality bar, and it ignores the cost of running it.
+
+#### How the ceiling was measured
+
+Source: the KPI ledger of model calls, 47,681 calls in 88 sessions from 2026-08-05 to 2026-11-20 (calls with a recorded cost). Each call has a category describing what it did: run 73.7%, explore 12.3%, edit 5.8%, respond 3.5%, delegate 2.9%, ask 1.7%, memory 0.2% of spend. Explore (reading and searching) and memory are the retrieval work: 12.5% together; with every respond call added the bound is at most 16%.
+
+The calls in that work are not small. The median explore call carried about 141,800 input tokens and the 90th percentile about 565,500 (memory calls: 189,400 and 660,000). Counting only calls whose input fits a window, the share of that spend is 1.1% for 8,000 tokens, 2.5% for 32,000 and 18.1% for 128,000 (by number of calls: 2.4%, 6.2% and 45.6%). Local models with 8 GB to 16 GB of memory mostly work in the smaller windows. That is why the context-feasible numbers sit far below the ceiling.
+
+#### Local AI assets today
+
+- Workstation GPU (8 GB of video memory, measured): the model server is not running.
+- Farm tables: one run of 6 jobs, with an estimated total saving smaller than the cost of one typical paid call (estimate from a plan reference cost); device utilization has no samples.
+- Operator-owned AI computer (NVIDIA Jetson Orin NX 16 GB, vendor data: 16 GB unified memory, 157 TOPS).
+- Value realized today: about zero.
+
+#### Quality: the question that decides it
+
+The bar is 0.90 accuracy on audited claim labels. A model is below the bar if the upper bound of its accuracy interval is under 0.90, clears it if the lower bound is at least 0.90, and is inconclusive at that sample size otherwise; the sample size is always shown. This rule is fixed before the measurement. The measurement on the AI computer is one benchmark run that returns aggregates only.
+
+#### Capacity
+
+| System | Memory for models | Status |
+|---|---|---|
+| Workstation GPU | 8 GB video memory | measured |
+| Jetson Orin NX 16 GB | 16 GB unified memory | vendor |
+
+#### Price per unit of input, by model (ratio)
+
+The ledger gives the AI cost per million input tokens by model. Setting claude-opus-5.5 to 1.00: claude-sonnet-5 is 0.50 and claude-sonnet-5.5 is 0.52 (measured, 21,723, 14,605 and 6,871 calls). This compares price per input token, not quality. Routing routine work to the cheaper models changes spend without new hardware; it is a lever next to the local GPU, and its effect on quality is not measured here.
+
+#### What one measurement would settle
+
+One benchmark on the AI computer returns, per model: generation speed, memory in use and judge accuracy with its interval and the decision above. If a model clears the bar, the ceiling becomes a target for that class of work, limited by the context windows above; if not, the local GPU stays a retrieval and drafting tool.
 
 ### The cost shape across the program
 
