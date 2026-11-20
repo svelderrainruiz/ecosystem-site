@@ -19,7 +19,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const exportedAt = s?.exported ? s.lastExport : null;
 const exportedShown = exportedAt && `${exportedAt.slice(0, 10)} ${exportedAt.slice(11, 19)} UTC`;
 ---
-<article class="card">
+<article class="card" data-member-id={id}>
   <header>
     <h3>{member.name}</h3>
     <span class={`badge ${isPublic ? 'public' : 'private'}`}>{member.visibility}</span>

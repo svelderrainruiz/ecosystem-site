@@ -29,7 +29,8 @@ Nothing about the registry is stored in this repository.
 
 `scripts/check-site.mjs` fails the build on a broken internal link or anchor, a link that ignores the site base, an
 absolute dollar or AI-unit amount, a secret-looking string, a local path or database name, a GitLab URL the Ecosystem
-page doesn't state, extra fields on a private member, and a figure that isn't on the North-Star business case page.
+page doesn't state, extra fields on a private member, a member card on the home or Ecosystem page that lacks its own
+export time to the second, and a figure that isn't on the North-Star business case page.
 `SITE_DIST=<dir>` points the same checks at another copy of the site, for example a mirror of the live one.
 
 Private members (RSR, mprr) appear as counts, export times and rule names only. Figures are relative.
