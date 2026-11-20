@@ -32,5 +32,10 @@ page doesn't state, extra fields on a private member, and a figure that isn't on
 `SITE_DIST=<dir>` points the same checks at another copy of the site, for example a mirror of the live one.
 
 Private members (RSR, mprr) appear as counts, export dates and rule names only. Figures are relative.
-The pages copied from the wikis keep the licenses of the repositories they come from; this repository has no license
-file of its own yet.
+
+## License
+
+This repository is licensed under the BSD Zero Clause License ([LICENSE](LICENSE), SPDX `0BSD`), the same license as
+labview-benchmark-actor, vi-history-suite and lbabus. The pages under `src/content/docs/members/` and
+`src/content/docs/results/north-star-business-case.md` are copies of pages from the members' public wikis (`npm run
+sync`): they keep the terms of the repositories they come from, and the license above covers everything else.
