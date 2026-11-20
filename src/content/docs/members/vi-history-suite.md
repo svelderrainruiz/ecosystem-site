@@ -5,7 +5,7 @@ sidebar:
 editUrl: false
 ---
 
-*Source: the vihs wiki, `Home.md` at commit `232d551`. This page is copied as it stands, links to wiki pages that the site doesn't carry go to the wiki.*
+*Source: the vihs wiki, `Home.md` at commit `bca1bc7`. This page is copied as it stands, links to wiki pages that the site doesn't carry go to the wiki.*
 
 The spec-driven documentation of [vi-history-suite](https://github.com/svelderrainruiz/vi-history-suite).
 
@@ -16,7 +16,7 @@ Every page is generated from the repository's `docs/` folder on `develop` by `wi
 - [Software-Requirements-Specification](https://github.com/svelderrainruiz/vi-history-suite/wiki/Software-Requirements-Specification): 141 requirements, one page each under `software-requirements/`.
 - [Requirements-Traceability-Matrix](https://github.com/svelderrainruiz/vi-history-suite/wiki/Requirements-Traceability-Matrix): each requirement with its status and tests.
 - [Architecture-Packet](https://github.com/svelderrainruiz/vi-history-suite/wiki/Architecture-Packet): the architecture description; 35 decisions in [ADR-Index](https://github.com/svelderrainruiz/vi-history-suite/wiki/ADR-Index).
-- [Test-Plan](https://github.com/svelderrainruiz/vi-history-suite/wiki/Test-Plan).
+- [Test-Plan](https://github.com/svelderrainruiz/vi-history-suite/wiki/Test-Plan): 22 test items, one page each under `tests/`: 22 canonical, 0 stub.
 
 ## Information for users
 

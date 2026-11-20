@@ -5,7 +5,7 @@ sidebar:
 editUrl: false
 ---
 
-*Source: the lba wiki, `Home.md` at commit `0fdb27d`. This page is copied as it stands, links to wiki pages that the site doesn't carry go to the wiki.*
+*Source: the lba wiki, `Home.md` at commit `7ca3e9f`. This page is copied as it stands, links to wiki pages that the site doesn't carry go to the wiki.*
 
 The spec-driven documentation of [labview-benchmark-actor](https://github.com/svelderrainruiz/labview-benchmark-actor), a VS Code extension for benchmarking LabVIEW across Codespaces, golden VMs, and a coordination mesh.
 

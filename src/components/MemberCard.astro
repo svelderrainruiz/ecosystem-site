@@ -1,12 +1,14 @@
 ---
 import members from '../data/members.json';
 import status from '../data/status.json';
+import testPages from '../data/test-pages.json';
 
 interface Props { id: string }
 const { id } = Astro.props;
 const member = members.find((m) => m.id === id);
 if (!member) throw new Error(`Unknown member: ${id}`);
 const s = status.members.find((m) => m.id === id);
+const tp = testPages[id];
 const isPublic = member.visibility === 'public';
 const scopes = Object.entries(s?.scopes ?? {}).filter(([, count]) => count > 0);
 const scopeLabel = { software: 'Software requirements', system: 'System requirements', test: 'Tests' };
@@ -19,11 +21,12 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   </header>
   <p class="role">{member.role}</p>
   <ul class="facts">
-    {s?.pin && (<li><span>RSR release pinned</span><span><code>{s.pin.tag}</code></span></li>)}
-    <li><span>Registry export</span><span>{s?.exported ? `last on ${s.lastExport}` : 'none yet'}</span></li>
-    {isPublic && s?.revision && (<li><span>Exported revision</span><span><code>{s.revision}</code></span></li>)}
-    {scopes.map(([scope, count]) => (<li><span>{scopeLabel[scope] ?? scope}</span><span>{count}</span></li>))}
-    {s?.edges ? (<li><span>Trace links</span><span>{s.edges}</span></li>) : null}
+    {s?.pin && (<li><span>RSR release pinned</span>{' '}<span><code>{s.pin.tag}</code></span></li>)}
+    <li><span>Registry export</span>{' '}<span>{s?.exported ? `last on ${s.lastExport}` : 'none yet'}</span></li>
+    {isPublic && s?.revision && (<li><span>Exported revision</span>{' '}<span><code>{s.revision}</code></span></li>)}
+    {scopes.map(([scope, count]) => (<li><span>{scopeLabel[scope] ?? scope}</span>{' '}<span>{count}</span></li>))}
+    {tp && tp.canonical + tp.stub > 0 && (<li><span>Test pages</span>{' '}<span>{tp.canonical} canonical, {tp.stub} stub</span></li>)}
+    {s?.edges ? (<li><span>Trace links</span>{' '}<span>{s.edges}</span></li>) : null}
   </ul>
   {!isPublic && member.rules && (
     <p class="rules">Rules: {member.rules.map((r) => <code>{r}</code>)}</p>

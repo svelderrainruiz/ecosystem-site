@@ -1,0 +1,26 @@
+{
+  "projectbuddy": {
+    "canonical": 95,
+    "stub": 38
+  },
+  "labview-benchmark-actor": {
+    "canonical": 0,
+    "stub": 103
+  },
+  "vi-history-suite": {
+    "canonical": 22,
+    "stub": 0
+  },
+  "lbabus": {
+    "canonical": 8,
+    "stub": 0
+  },
+  "repo-standards-review-consumer-kit": {
+    "canonical": 0,
+    "stub": 0
+  },
+  "repo-standards-review": {
+    "canonical": 9,
+    "stub": 74
+  }
+}

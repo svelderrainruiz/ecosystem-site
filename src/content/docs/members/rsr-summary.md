@@ -5,7 +5,7 @@ sidebar:
 editUrl: false
 ---
 
-*Source: the projectbuddy wiki, `RSR-Summary.md` at commit `331e0eb`. This page is copied as it stands, links to wiki pages that the site doesn't carry go to the wiki.*
+*Source: the projectbuddy wiki, `RSR-Summary.md` at commit `cac4895`. This page is copied as it stands, links to wiki pages that the site doesn't carry go to the wiki.*
 
 `repo-standards-review` (RSR) is the standard every [ecosystem](/ecosystem-site/ecosystem/) member is assessed against. Its own repository and wiki are private, so this page is the public summary that the ecosystem wiki standard asks a private member to publish.
 
@@ -16,7 +16,7 @@ RSR's wiki is generated from its `docs/` folder by the shared wiki generator in 
 - **Profile:** `rsr/wiki-profile@2`, with a software scope and a test scope.
 - **Requirements:** 76 `VHS-REQ` pages, from RSR's specification. 65 are Implemented and 11 Planned.
 - **System requirements:** 26, kept on an ordinary specification page rather than as governed pages. RSR numbers its system and software requirements with one `VHS-REQ` prefix, and a wiki profile forbids one prefix in two scopes.
-- **Tests:** 83 stub pages. Canonical test pages with stimulus and observation items follow.
+- **Tests:** 83 pages: 9 canonical, with a stimulus and required observation items that the observation check passes against pytest evidence (183 test-case items), and 74 stubs that record no definition yet. A stub is not counted as verified.
 - **Traces:** 81 `verifies` edges.
 - **Conformance:** the reference checker reports zero findings.
 - **Registry:** the wiki is not exported to the RSR requirement registry. The registry reads RSR's source tables, which hold the system scope as well.

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-19",
+  "generated": "2026-11-20",
   "source": "RSR requirement registry, read-only",
   "members": [
     {
@@ -50,15 +50,16 @@
       "id": "vi-history-suite",
       "exported": true,
       "scopes": {
-        "software": 141
+        "software": 141,
+        "test": 22
       },
-      "edges": 0,
-      "lastExport": "2026-11-19",
-      "revision": "232d551",
+      "edges": 25,
+      "lastExport": "2026-11-20",
+      "revision": "bca1bc7",
       "ref": "develop",
       "pin": {
-        "tag": "v0.12.0",
-        "commit": "49dfa31"
+        "tag": "v0.14.0",
+        "commit": "26eddc9"
       }
     },
     {

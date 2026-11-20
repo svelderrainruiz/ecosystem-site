@@ -1,7 +1,7 @@
 // Copies the public wiki pages the site presents into src/content/docs as plain Markdown (never MDX), so the wikis stay
 // the source of truth. Reads only public repositories over https. Records each source commit in the page front matter.
 import { execFileSync } from 'node:child_process';
-import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { base } from '../site.config.mjs';
@@ -70,6 +70,22 @@ for (const [key, file, dest, label] of pages) {
   writeFileSync(join(docs, dest), `${front}\n${body}`);
   console.log(`${dest} <- ${key}/${file}@${clones[key].commit}`);
 }
+
+// Test pages per member: a page under tests/ is a stub when it carries the page-kind: stub marker, otherwise canonical.
+// A private member's counts are only what its public summary page states.
+const memberOfWiki = { projectbuddy: 'projectbuddy', lba: 'labview-benchmark-actor', vihs: 'vi-history-suite', lbabus: 'lbabus', kit: 'repo-standards-review-consumer-kit' };
+const testPages = {};
+for (const [key, id] of Object.entries(memberOfWiki)) {
+  const dir = join(clones[key].dir, 'tests');
+  let files = [];
+  try { files = readdirSync(dir).filter((f) => f.endsWith('.md')); } catch { /* no tests/ directory */ }
+  const stub = files.filter((f) => /^<!--\s*page-kind:\s*stub\s*-->/m.test(readFileSync(join(dir, f), 'utf8'))).length;
+  testPages[id] = { canonical: files.length - stub, stub };
+}
+const rsrTests = /\*\*Tests:\*\*[^\n]*?(\d+) canonical[^\n]*?(\d+) stubs?/.exec(readFileSync(join(clones.projectbuddy.dir, 'RSR-Summary.md'), 'utf8'));
+if (!rsrTests) throw new Error('RSR-Summary.md no longer states "N canonical ... M stubs" on its Tests line');
+testPages['repo-standards-review'] = { canonical: Number(rsrTests[1]), stub: Number(rsrTests[2]) };
+writeFileSync(join(root, 'src/data/test-pages.json'), `${JSON.stringify(testPages, null, 2)}\n`);
 
 // The Ecosystem page is the authority for which private names may appear on the site; the leak check reads this copy.
 mkdirSync(join(root, 'src/data'), { recursive: true });

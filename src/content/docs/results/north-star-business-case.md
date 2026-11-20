@@ -5,7 +5,7 @@ sidebar:
 editUrl: false
 ---
 
-*Source: the projectbuddy wiki, `North-Star-Business-Case.md` at commit `331e0eb`. This page is copied as it stands, links to wiki pages that the site doesn't carry go to the wiki.*
+*Source: the projectbuddy wiki, `North-Star-Business-Case.md` at commit `cac4895`. This page is copied as it stands, links to wiki pages that the site doesn't carry go to the wiki.*
 
 This is the public summary of the north star (VITechnologies/projectbuddy#328): one measured lbabus wiki change, an
 improvement to the standard, and a rerun. Figures are relative. The full case, with absolute figures and the
