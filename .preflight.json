@@ -71,6 +71,11 @@
       "path": "src/data/test-pages.json",
       "rule": "configured_private_name",
       "reason": "already public on the live site as a member name; counts only"
+    },
+    {
+      "path": ".preflight.json",
+      "rule": "configured_private_name",
+      "reason": "the config lists the exempted file paths, and two of those paths contain the member names already public on the live site"
     }
   ]
 }
