@@ -15,8 +15,11 @@ const isPublic = member.visibility === 'public';
 const scopes = Object.entries(s?.scopes ?? {}).filter(([, count]) => count > 0);
 const scopeLabel = { software: 'Software requirements', system: 'System requirements', test: 'Tests' };
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+// lastExport is UTC to the second (YYYY-MM-DDTHH:MM:SSZ); the card shows "YYYY-MM-DD HH:MM:SS UTC".
+const exportedAt = s?.exported ? s.lastExport : null;
+const exportedShown = exportedAt && `${exportedAt.slice(0, 10)} ${exportedAt.slice(11, 19)} UTC`;
 ---
-<article class="card">
+<article class="card" data-member-id={id}>
   <header>
     <h3>{member.name}</h3>
     <span class={`badge ${isPublic ? 'public' : 'private'}`}>{member.visibility}</span>
@@ -24,7 +27,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   <p class="role">{member.role}</p>
   <ul class="facts">
     {s?.pin && (<li><span>RSR release pinned</span>{' '}<span><code>{s.pin.tag}</code></span></li>)}
-    <li><span>Registry export</span>{' '}<span>{s?.exported ? `last on ${s.lastExport}` : 'none yet'}</span></li>
+    <li class="export"><span>Registry export</span>{' '}<span>{exportedAt ? <>last on <time datetime={exportedAt}>{exportedShown}</time></> : 'none yet'}</span></li>
     {isPublic && s?.revision && (<li><span>Exported revision</span>{' '}<span><code>{s.revision}</code></span></li>)}
     {scopes.map(([scope, count]) => (<li><span>{scopeLabel[scope] ?? scope}</span>{' '}<span>{count}</span></li>))}
     {tpTotal > 0 && (<li><span>Test pages</span>{' '}<span>{tpText}</span></li>)}
@@ -47,6 +50,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   .facts { list-style: none; padding: 0; margin: 0.5rem 0; font-size: var(--sl-text-sm); }
   .facts li { display: flex; justify-content: space-between; gap: 1rem; margin: 0; padding: 0.15rem 0; border-bottom: 1px solid var(--sl-color-gray-6); }
   .facts li span:first-child { color: var(--sl-color-gray-3); }
+  /* The export time is the one long value: keep it whole, and drop it to its own right-aligned line when the card is narrow. */
+  .facts li.export { flex-wrap: wrap; row-gap: 0; }
+  .facts li.export span:last-child { margin-left: auto; white-space: nowrap; }
   .rules code { margin-right: 0.3rem; }
   .note { color: var(--sl-color-gray-3); font-size: var(--sl-text-sm); }
   p { margin: 0.4rem 0; }

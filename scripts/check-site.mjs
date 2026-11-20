@@ -89,7 +89,7 @@ for (const [where, body] of sources) {
     if (!allowedPrivate.includes(url.replace(/[.,;]+$/, ''))) fail(where, `private-host URL not on the Ecosystem page: ${url}`);
   }
 }
-// Private members publish counts, export dates and rule names only: no revision, no ref, no remote, no repo link.
+// Private members publish counts, export times and rule names only: no revision, no ref, no remote, no repo link.
 for (const m of members.filter((x) => x.visibility === 'private')) {
   const s = status.members.find((x) => x.id === m.id);
   const extra = Object.keys(s ?? {}).filter((k) => !['id', 'exported', 'scopes', 'edges', 'lastExport'].includes(k));
@@ -106,6 +106,36 @@ for (const needle of [
   `about ${results.costShare.ai}%`, `about ${results.costShare.operator}%`,
 ]) {
   if (!page.includes(needle)) fail('src/data/results.json', `"${needle}" is not on the North-Star business case page`);
+}
+
+// ---- 4. Every member's own card, on both pages that carry the cards, shows its export time to the second (UTC)
+const exportTime = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}Z$/;
+const badTime = new Set();
+for (const s of status.members.filter((x) => x.exported)) {
+  if (!exportTime.test(s.lastExport ?? '')) {
+    badTime.add(s.id);
+    fail('src/data/status.json', `${s.id} lastExport "${s.lastExport}" is not a UTC time with seconds (YYYY-MM-DDTHH:MM:SSZ)`);
+  }
+}
+// Named here, not found by their text, so a page that loses its cards or its export lines still fails.
+for (const page of ['index.html', 'ecosystem/index.html']) {
+  const file = join(dist, page);
+  if (!existsSync(file)) { fail(page, 'the page that carries the member cards is missing'); continue; }
+  // A card is <article data-member-id="...">: each time is looked for inside its own member's card only.
+  const cards = new Map();
+  for (const [, id, inner] of readFileSync(file, 'utf8').matchAll(/<article\b[^>]*\bdata-member-id="([^"]+)"[^>]*>([\s\S]*?)<\/article>/g)) {
+    if (cards.has(id)) fail(page, `the ${id} card appears twice`);
+    cards.set(id, inner);
+  }
+  for (const m of members) {
+    const inner = cards.get(m.id);
+    if (inner === undefined) { fail(page, `the ${m.id} card is missing`); continue; }
+    const s = status.members.find((x) => x.id === m.id);
+    if (!s?.exported || badTime.has(m.id)) continue;
+    const shown = `${s.lastExport.slice(0, 10)} ${s.lastExport.slice(11, 19)} UTC`;
+    // Safe to build from the value: exportTime admits only digits, '-', ':', 'T' and 'Z'.
+    if (!new RegExp(`<time datetime="${s.lastExport}"[^>]*>${shown}</time>`).test(inner)) fail(page, `the ${m.id} card does not show its export time "${shown}"`);
+  }
 }
 
 if (findings.length) {

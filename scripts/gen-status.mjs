@@ -1,5 +1,5 @@
 // Generates src/data/status.json from the RSR requirement registry. Read-only: SELECTs only, through psql.
-// Public members get revisions; private members (RSR, mprr) get counts and export dates only.
+// Public members get revisions; private members (RSR, mprr) get counts and export times only.
 import { execFileSync } from 'node:child_process';
 import { readFileSync, writeFileSync } from 'node:fs';
 
@@ -20,7 +20,7 @@ WITH latest AS (
   FROM registry_v1.snapshots sn JOIN registry_v1.sources s USING (source_uuid)
   WHERE s.canonical_remote NOT LIKE 'local://%'
   ORDER BY sn.source_uuid, sn.scope, sn.accepted_at DESC)
-SELECT member, scope, source_ref, left(source_revision, 7), to_char(accepted_at AT TIME ZONE 'UTC', 'YYYY-MM-DD"T"HH24:MI:SS'),
+SELECT member, scope, source_ref, left(source_revision, 7), to_char(accepted_at AT TIME ZONE 'UTC', 'YYYY-MM-DD"T"HH24:MI:SS"Z"'),
        (SELECT count(*) FROM registry_v1.requirement_nodes n WHERE n.snapshot_uuid = latest.snapshot_uuid),
        (SELECT count(*) FROM registry_v1.edges e WHERE e.snapshot_uuid = latest.snapshot_uuid)
 FROM latest ORDER BY 1, 2`;
@@ -33,7 +33,7 @@ const out = execFileSync('psql', ['-h', need('REGISTRY_HOST'), '-p', need('REGIS
 
 const rows = out.split('\n').filter((l) => l && !l.startsWith('SET')).map((l) => {
   const [member, scope, ref, revision, ts, nodes, edges] = l.split('\t');
-  return { member, scope, ref, revision, ts, date: ts.slice(0, 10), nodes: Number(nodes), edges: Number(edges) };
+  return { member, scope, ref, revision, ts, nodes: Number(nodes), edges: Number(edges) };
 });
 
 // A public member's pin is read from its own repository over anonymous https, so the card shows what the repository says.
@@ -54,7 +54,8 @@ for (const m of members) {
     exported: mine.length > 0,
     scopes,
     edges: mine.reduce((sum, r) => sum + r.edges, 0),
-    lastExport: mine.map((r) => r.date).sort().at(-1) ?? null,
+    // The newest snapshot's acceptance time, UTC to the second (YYYY-MM-DDTHH:MM:SSZ); the fixed format sorts as text.
+    lastExport: mine.map((r) => r.ts).sort().at(-1) ?? null,
   };
   if (m.visibility === 'public' && mine.length > 0) {
     // An unchanged scope reuses its earlier snapshot, so the newest snapshot (by full timestamp) names the revision.
