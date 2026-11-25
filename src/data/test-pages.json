@@ -24,6 +24,11 @@
     "fileLevel": 0,
     "stub": 0
   },
+  "ecosystem": {
+    "canonical": 0,
+    "fileLevel": 0,
+    "stub": 58
+  },
   "repo-standards-review": {
     "canonical": 38,
     "fileLevel": 0,

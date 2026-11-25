@@ -64,5 +64,14 @@
     "repo": "https://github.com/svelderrainruiz/repo-standards-review-consumer-kit",
     "wiki": "https://github.com/svelderrainruiz/repo-standards-review-consumer-kit/wiki",
     "remote": "https://github.com/svelderrainruiz/repo-standards-review-consumer-kit"
+  },
+  {
+    "id": "ecosystem",
+    "name": "ecosystem",
+    "role": "Ecosystem Runner installer",
+    "visibility": "public",
+    "repo": "https://github.com/svelderrainruiz/ecosystem",
+    "wiki": "https://github.com/svelderrainruiz/ecosystem/wiki",
+    "remote": "https://github.com/svelderrainruiz/ecosystem"
   }
 ]

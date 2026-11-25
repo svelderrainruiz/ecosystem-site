@@ -27,6 +27,7 @@ export default defineConfig({
             { slug: 'members/vi-history-suite' },
             { slug: 'members/lbabus' },
             { slug: 'members/repo-standards-review-consumer-kit' },
+            { slug: 'members/ecosystem' },
             { slug: 'members/mprr-summary' },
           ],
         },
