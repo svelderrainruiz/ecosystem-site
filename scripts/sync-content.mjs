@@ -15,6 +15,7 @@ const wikis = {
   vihs: 'https://github.com/svelderrainruiz/vi-history-suite.wiki.git',
   lbabus: 'https://github.com/svelderrainruiz/lbabus.wiki.git',
   kit: 'https://github.com/svelderrainruiz/repo-standards-review-consumer-kit.wiki.git',
+  ecosystem: 'https://github.com/svelderrainruiz/ecosystem.wiki.git',
 };
 
 // page: [wiki, source file, destination under docs/, sidebar label]
@@ -26,12 +27,13 @@ const pages = [
   ['vihs', 'Home.md', 'members/vi-history-suite.md', 'vi-history-suite wiki'],
   ['lbabus', 'Home.md', 'members/lbabus.md', 'lbabus wiki'],
   ['kit', 'Home.md', 'members/repo-standards-review-consumer-kit.md', 'consumer kit wiki'],
+  ['ecosystem', 'Home.md', 'members/ecosystem.md', 'ecosystem wiki'],
 ];
 
 // Wiki page names that exist on the site map to site paths, under the site base. Any other wiki link goes to the wiki itself.
 const sitePages = Object.fromEntries(Object.entries({ 'RSR-Summary': '/members/rsr-summary/', 'mprr-Summary': '/members/mprr-summary/', 'North-Star-Business-Case': '/results/north-star-business-case/', Ecosystem: '/ecosystem/' })
   .map(([name, path]) => [name, `${base}${path}`]));
-const wikiUrl = { projectbuddy: 'https://github.com/VITechnologies/projectbuddy/wiki', lba: 'https://github.com/svelderrainruiz/labview-benchmark-actor/wiki', vihs: 'https://github.com/svelderrainruiz/vi-history-suite/wiki', lbabus: 'https://github.com/svelderrainruiz/lbabus/wiki', kit: 'https://github.com/svelderrainruiz/repo-standards-review-consumer-kit/wiki' };
+const wikiUrl = { projectbuddy: 'https://github.com/VITechnologies/projectbuddy/wiki', lba: 'https://github.com/svelderrainruiz/labview-benchmark-actor/wiki', vihs: 'https://github.com/svelderrainruiz/vi-history-suite/wiki', lbabus: 'https://github.com/svelderrainruiz/lbabus/wiki', kit: 'https://github.com/svelderrainruiz/repo-standards-review-consumer-kit/wiki', ecosystem: 'https://github.com/svelderrainruiz/ecosystem/wiki' };
 
 const tmp = mkdtempSync(join(tmpdir(), 'eco-sync-'));
 const clones = {};
@@ -64,7 +66,7 @@ function convert(key, text) {
 // Test pages per member: a page under tests/ is a stub when it carries the page-kind: stub marker, file-level when its title
 // says so, otherwise per-case canonical.
 // A private member's counts are only what its public summary page states.
-const memberOfWiki = { projectbuddy: 'projectbuddy', lba: 'labview-benchmark-actor', vihs: 'vi-history-suite', lbabus: 'lbabus', kit: 'repo-standards-review-consumer-kit' };
+const memberOfWiki = { projectbuddy: 'projectbuddy', lba: 'labview-benchmark-actor', vihs: 'vi-history-suite', lbabus: 'lbabus', kit: 'repo-standards-review-consumer-kit', ecosystem: 'ecosystem' };
 const testPages = {};
 for (const [key, id] of Object.entries(memberOfWiki)) {
   const dir = join(clones[key].dir, 'tests');
