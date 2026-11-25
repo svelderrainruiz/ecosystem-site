@@ -147,6 +147,31 @@ The ledger gives the AI cost per million input tokens by model. Setting claude-o
 
 One benchmark on the AI computer returns, per model: generation speed, memory in use and judge accuracy with its interval and the decision above. If a model clears the bar, the ceiling becomes a target for that class of work, limited by the context windows above; if not, the local GPU stays a retrieval and drafting tool.
 
+### GPU measurement as a feedback loop for local models (proposed)
+
+*Added on this site. This section is not in the wiki page that the rest of this page is copied from.*
+
+Today the [labview-benchmark-actor](https://github.com/svelderrainruiz/labview-benchmark-actor) VS Code extension
+(release 1.6.7) offers 13 [tools](https://github.com/svelderrainruiz/labview-benchmark-actor/blob/main/docs/mcp-tools.md)
+to agents over the Model Context Protocol, and a local Ollama model can call them through a command-line bridge. When it
+captures a LabVIEW launch, it records the screen at 12 frames a second with processor, memory and disk samples. It does
+not measure the GPU. In the 1.6.7 review, a small local model (qwen3:4b, served by Ollama in the reviewer virtual
+machine) listed the 13 tools but did not call them; in the next test the default Copilot model called the extension's
+tool and passed. No GPU data was recorded, so the review cannot say why the local model did not call them.
+
+The proposal: record GPU use, video memory in use, temperature and clock speed next to the existing samples, on the
+same time axis, while a local model, for example a Gemma 4 build, calls the tools. The trace then points to a cause
+and to the next change to try:
+
+- **Video memory full,** part of the model running on the processor: slow replies or time-outs. Try a smaller model,
+  a smaller quantisation or a shorter context.
+- **Temperature up and clocks down:** thermal throttling. Fix cooling or power settings before judging the model.
+- **GPU idle while the model answers:** the model runs on the processor. Check the driver and the model server.
+- **GPU healthy, still no tool call:** not a resource problem. The model or its tool setup is the cause, so try
+  another model.
+
+After each change the same prompt runs again and the traces are compared. This is not built or measured yet.
+
 ### The cost shape across the program
 
 - **Operator time dominates.** In the KPI ledger, AI is about 10% of total cost and operator time about 90%
