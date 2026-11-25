@@ -22,6 +22,7 @@
     "name": "labview-benchmark-actor (LBA)",
     "role": "VS Code extension for LabVIEW launch capture and benchmarking",
     "visibility": "public",
+    "extensionRelease": { "version": "1.6.7", "marketplaceId": "svelderrainruiz.labview-benchmark-actor" },
     "repo": "https://github.com/svelderrainruiz/labview-benchmark-actor",
     "wiki": "https://github.com/svelderrainruiz/labview-benchmark-actor/wiki",
     "remote": "https://github.com/svelderrainruiz/labview-benchmark-actor",

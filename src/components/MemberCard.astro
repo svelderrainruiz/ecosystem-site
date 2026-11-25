@@ -26,6 +26,12 @@ const exportedShown = exportedAt && `${exportedAt.slice(0, 10)} ${exportedAt.sli
   </header>
   <p class="role">{member.role}</p>
   <ul class="facts">
+    {isPublic && member.extensionRelease && (
+      <li><span>VS Code extension</span>{' '}<span>
+        <a href={`${member.repo}/releases/tag/ext-v${member.extensionRelease.version}`}>{member.extensionRelease.version}</a>
+        {' · '}<a href={`https://marketplace.visualstudio.com/items?itemName=${member.extensionRelease.marketplaceId}`}>Marketplace</a>
+      </span></li>
+    )}
     {s?.pin && (<li><span>RSR release pinned</span>{' '}<span><code>{s.pin.tag}</code></span></li>)}
     <li class="export"><span>Registry export</span>{' '}<span>{exportedAt ? <>last on <time datetime={exportedAt}>{exportedShown}</time></> : 'none yet'}</span></li>
     {isPublic && s?.revision && (<li><span>Exported revision</span>{' '}<span><code>{s.revision}</code></span></li>)}
