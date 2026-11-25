@@ -5,7 +5,7 @@ sidebar:
 editUrl: false
 ---
 
-*Source: the ecosystem wiki, `Home.md` at commit `6a5c5ce`. This page is copied as it stands, links to wiki pages that the site doesn't carry go to the wiki.*
+*Source: the ecosystem wiki, `Home.md` at commit `56b9906`. This page is copied as it stands, links to wiki pages that the site doesn't carry go to the wiki.*
 
 The requirements of the Ecosystem Runner installer, which [ecosystem](https://github.com/svelderrainruiz/ecosystem) holds and publishes as test kits. The wiki follows the ecosystem wiki standard (`rsr/ecosystem-wiki-standard@8`), with its profile in `.wiki-profile.json` (`rsr/wiki-profile@2`). The RSR consumer kit's `wiki_generate.py` writes it from the installer specification in `docs/installer-spec/`: one page per requirement (`INST-REQ`), with the specification's exact text, and one page per test case of the test plan (`INST-TC`).
 
