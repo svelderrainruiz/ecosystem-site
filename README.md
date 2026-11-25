@@ -20,6 +20,11 @@ Publishing: a push to `main` runs `.github/workflows/pages.yml`, which builds an
 the check passes. Pull requests are built and checked but never deployed. Updating the site is therefore: regenerate
 the status and pages locally (the registry is not reachable from CI), commit, push.
 
+The home and Ecosystem pages share a member card. For a public VS Code extension with `ext-v` release tags,
+set `extensionRelease` in `src/data/members.json` only after the version is verified on both GitHub and the
+Marketplace. After deployment, follow the version and Marketplace links on the live card. Do not edit the
+generated wiki copy or use a candidate tag as proof of publication.
+
 The site is served under a base path (`site.config.mjs`). Root-absolute links do not get it automatically: `sync` writes
 it into the pages it copies, and the few links in the hand-written MDX and frontmatter carry it by hand.
 
