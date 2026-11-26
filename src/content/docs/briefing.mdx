@@ -91,18 +91,20 @@ It started with a practical question: what changed in this VI? LabVIEW code is g
 
 <div class="b-journey"><span>Started</span><span class="on">Today</span><span>Next</span></div>
 
-<div class="b-tiles">
-<div><strong>Actor Corroboration Grid <Badge kind="working" /></strong>A result counts only when independent machines agree</div>
-<div><strong>Capture a LabVIEW launch <Badge kind="working" /></strong>Records what LabVIEW does, to cover icon-editor bug (CAR) tests</div>
-<div><strong>One deterministic clock <Badge kind="working" /></strong>12 frames per second, lined up with NI I/O Trace and DETT</div>
-<div><strong>Mark the spot <Badge kind="progress" /></strong>A human marks where it went wrong; an agent explains that range</div>
+<div class="b-shot"><img src="/ecosystem-site/briefing/lba-frame-correlator.png" alt="The Frame Correlator in VS Code: CPU, RAM and disk activity for every captured frame of a LabVIEW launch, with a red line to scrub through the frames" /><p class="b-cap">Frame Correlator: CPU, RAM and disk for every frame of a LabVIEW launch; drag the red line to see the screen at that instant</p></div>
+
+<div class="b-tiles b-four">
+<div><Badge kind="working" /><strong>Corroboration Grid</strong>Independent machines must agree</div>
+<div><Badge kind="working" /><strong>Capture a launch</strong>Covers icon-editor bug (CAR) tests</div>
+<div><Badge kind="working" /><strong>Deterministic clock</strong>12 FPS, pairs with NI I/O Trace and DETT</div>
+<div><Badge kind="working" /><strong>Mark the spot</strong>Click a frame to drop a marker</div>
 </div>
 
 <p class="b-banner">Break glass in case of emergency: the evidence is already captured</p>
 
 <Notes>
 
-Today, the [LabVIEW Benchmark Actor](https://github.com/svelderrainruiz/labview-benchmark-actor) turns LabVIEW runs into evidence. Every machine with the extension is an actor with an abstract name, and a result counts only when independent actors agree. Capturing a LabVIEW launch records what LabVIEW does, which lets a tester cover specific icon-editor CAR tests; a CAR is NI's bug-report number. The capture runs on a fixed clock of 12 frames per second, so its timings line up with NI I/O Trace and the Desktop Execution Trace Toolkit. Markers are in progress. When something breaks, the evidence is already there.
+Today, the [LabVIEW Benchmark Actor](https://github.com/svelderrainruiz/labview-benchmark-actor) turns LabVIEW runs into evidence. This is its Frame Correlator: CPU, RAM and disk for every frame of a LabVIEW launch, and dragging the red line shows the screen at that instant. Every machine with the extension is an actor with an abstract name, and a result counts only when independent actors agree. Capturing a LabVIEW launch lets a tester cover specific icon-editor CAR tests; a CAR is NI's bug-report number. The capture runs on a fixed clock of 12 frames per second, so its timings line up with NI I/O Trace and the Desktop Execution Trace Toolkit. And a human can click any frame to drop a marker. When something breaks, the evidence is already there.
 
 </Notes>
 
@@ -134,25 +136,21 @@ The Actor Corroboration Grid is how a result earns trust. Independent actors on 
 
 <div class="b-journey"><span>Started</span><span class="on">Today</span><span>Next</span></div>
 
+<div class="b-shot"><img src="/ecosystem-site/briefing/lba-markers.png" alt="Three markers, shown as orange triangles, dropped by a human on a captured LabVIEW launch in the Frame Correlator" /><p class="b-cap">Three markers (orange) dropped by a human on a captured LabVIEW launch; each one grabs the nearest frame</p></div>
+
 <div class="b-flow">
-<div>A human marks the spot<small>two markers on the benchmark, where something looked wrong</small></div>
-<div>An agent with no context<small>reads CPU · GPU · RAM · disk · screen in exactly that range</small></div>
+<div><Badge kind="working" />A human marks the spot<small>where something looked wrong</small></div>
+<div><Badge kind="progress" />An agent with no context<small>explains CPU · GPU · RAM · disk · screen in that range</small></div>
 <div class="b-hi">Hybrid verification<small>human judgement + agent speed: faster troubleshooting</small></div>
 </div>
 
-<div class="b-tiles b-three">
-<div><strong>Data tagging</strong>What happened, labelled for later queries</div>
-<div><strong>Video</strong>An animated clip of exactly that range</div>
-<div><strong>Agentic docs</strong>Local agents update the documentation from the tagged facts</div>
-</div>
+<p class="b-next"><strong>Then:</strong> data tagging · an animated clip of the range · documentation updated by local agents</p>
 
-<p class="b-banner">A marker hands the human's context to an agent that has none</p>
-
-<p class="b-foot"><Badge kind="progress" /> Requirement LBA-REQ-105 · the wiki shows it as planned until an automated check proves it</p>
+<p class="b-foot">Agent side specified as LBA-REQ-105 · the wiki shows it as planned until an automated check proves it</p>
 
 <Notes>
 
-A human watching a benchmark knows where something looked wrong; an agent starts with no context at all. The marker is the hand-off: the human places two markers on the benchmark, and those markers tell the agent where to look. A local model reads exactly that range (CPU, GPU, RAM, disk and the screen, on one clock) and explains what happened. Human judgement says where to look, and the agent brings speed and evidence. That makes troubleshooting faster and turns verification and validation into an AI/human hybrid. The tagged range then becomes a data tag, an animated clip and documentation that local agents update from the facts. Screen frames stay on the machine; only metadata goes to the agent. It's in progress.
+A human watching a benchmark knows where something looked wrong; an agent starts with no context at all. The marker is the hand-off: the human drops markers on the benchmark, and those markers tell the agent where to look. You're looking at three of them, and placing markers works today. Next, a local model reads exactly that range (CPU, GPU, RAM, disk and the screen, on one clock) and explains what happened. Human judgement says where to look, and the agent brings speed and evidence. That makes troubleshooting faster and turns verification and validation into an AI/human hybrid. The marked range then becomes a data tag, an animated clip and documentation that local agents update from the facts. Screen frames stay on the machine; only metadata goes to the agent. The agent side is in progress, specified as requirement 105.
 
 </Notes>
 
@@ -221,7 +219,7 @@ What comes next rests on one loop between requirements and source. I reverse-eng
 
 <Notes>
 
-*(Switch to Obsidian: the ecosystem vault, graph view.)* Here is the ecosystem as one connected map: every public member's wiki in one vault, one colour per member, joined by a hub note. The ecosystem has eight members under one wiki standard; the two private ones publish summary pages. *(Open Ecosystem-Hub, then the LabVIEW Benchmark Actor.)* Each requirement page shows its status. *(Open LBA-REQ-023.)* The Actor Corroboration Grid: proven, with its test and its decisions. *(Open LBA-REQ-105.)* The markers: in progress, so the wiki shows them as planned until an automated check proves them. Nobody writes these pages by hand: each wiki is rebuilt from its project's documents and checked against them. To explore one yourself, clone a member's wiki, such as the [Benchmark Actor's](https://github.com/svelderrainruiz/labview-benchmark-actor/wiki), and open it in Obsidian.
+*(Switch to Obsidian: the ecosystem vault, graph view.)* Here is the ecosystem as one connected map: every public member's wiki in one vault, one colour per member, joined by a hub note. The ecosystem has eight members under one wiki standard; the two private ones publish summary pages. *(Open Ecosystem-Hub, then the LabVIEW Benchmark Actor.)* Each requirement page shows its status. *(Open LBA-REQ-023.)* The Actor Corroboration Grid: proven, with its test and its decisions. *(Open LBA-REQ-105.)* The agent side of the markers: in progress, so the wiki shows it as planned until an automated check proves it. Nobody writes these pages by hand: each wiki is rebuilt from its project's documents and checked against them. To explore one yourself, clone a member's wiki, such as the [Benchmark Actor's](https://github.com/svelderrainruiz/labview-benchmark-actor/wiki), and open it in Obsidian.
 
 </Notes>
 
@@ -241,7 +239,7 @@ What comes next rests on one loop between requirements and source. I reverse-eng
 
 <p class="b-banner">Shown once by a human, verified by an agent on your own setup</p>
 
-<p class="b-foot">labview-icon-editor · capture works today · markers in progress · replay in development</p>
+<p class="b-foot">labview-icon-editor · capture and markers work today · replay in development</p>
 
 <Notes>
 
@@ -334,8 +332,8 @@ Here's how you can take part: all you need is the installer, and no source code 
 
 **LabVIEW Benchmark Actor**
 
-- <Badge kind="working" /> Capture LabVIEW runs as evidence, corroborated by independent machines
-- <Badge kind="progress" /> Human markers, tools for local models, and local verification of icon-editor tests
+- <Badge kind="working" /> Capture LabVIEW runs as evidence, with human markers, corroborated by independent machines
+- <Badge kind="progress" /> Agent explanations of marked ranges, tools for local models, local verification of icon-editor tests
 
 </div>
 </div>
@@ -346,7 +344,7 @@ Here's how you can take part: all you need is the installer, and no source code 
 
 <Notes>
 
-To close, what the two extensions do. VI History Suite compares any two VI versions visually, and AI agents can run those comparisons; TDMS-driven results reviewed in VS Code are in progress. The LabVIEW Benchmark Actor captures LabVIEW runs as evidence that independent machines corroborate; human markers, tools that local models can call, and local verification of icon-editor tests come next. Both are on the VS Code Marketplace, and this briefing stays online. If you have questions after today, there is one public place for them: the ecosystem Discussions. Results speak for themselves. Thank you. Questions?
+To close, what the two extensions do. VI History Suite compares any two VI versions visually, and AI agents can run those comparisons; TDMS-driven results reviewed in VS Code are in progress. The LabVIEW Benchmark Actor captures LabVIEW runs as evidence, with human markers, that independent machines corroborate; agent explanations of marked ranges, tools that local models can call, and local verification of icon-editor tests come next. Both are on the VS Code Marketplace, and this briefing stays online. If you have questions after today, there is one public place for them: the ecosystem Discussions. Results speak for themselves. Thank you. Questions?
 
 </Notes>
 
