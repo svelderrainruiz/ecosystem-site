@@ -19,7 +19,7 @@ import Badge from '../../components/briefing/Badge.astro';
 
 <Notes>
 
-Thanks for making the time. Today I'll show how specification-driven design can turn AI-assisted coding into a robust and scalable CI/CD ecosystem for LabVIEW benchmarking: where my tools are, why I built them and where they're going.
+Thanks for making the time. Today I'll show how specification-driven, AI-assisted benchmarking becomes a robust and scalable CI/CD ecosystem for LabVIEW: where my tools are, why I built them and where they're going.
 
 </Notes>
 
@@ -28,8 +28,8 @@ Thanks for making the time. Today I'll show how specification-driven design can 
 ## Executive summary
 
 <div class="b-tiles b-exec">
-<div><strong>Why</strong>AI-assisted coding is fast, but the credit runs out and the results are hard to trust</div>
-<div><strong>How</strong>Specification-driven design: AI codes against traceable requirements, and automated gates verify them</div>
+<div><strong>Why</strong>LabVIEW testing is manual, and AI help burns credit and is hard to trust</div>
+<div><strong>How</strong>Specification-driven, AI-assisted benchmarking: agents work from traceable requirements, and gates verify them</div>
 <div><strong>Proof</strong>2 extensions on the Marketplace · 8 ecosystem members · 101 of 106 Benchmark Actor requirements proven</div>
 <div><strong>Ask</strong>Test the installer · correct a requirement · implement one with your local LLM</div>
 </div>
@@ -38,7 +38,7 @@ Thanks for making the time. Today I'll show how specification-driven design can 
 
 <Notes>
 
-In one minute: AI-assisted coding is fast, but the monthly credit runs out and the results are hard to trust. My answer is specification-driven design: the AI codes against traceable requirements, and automated gates prove each one on real data. It works today: two extensions on the VS Code Marketplace, eight ecosystem members under one standard, and 101 of the Benchmark Actor's 106 requirements proven. My ask is small: test the installer, correct a requirement, or implement one with your local model. The next milestone is 1 December, when the zero-overage experiment starts.
+In one minute: LabVIEW testing is still manual, and AI help burns monthly credit and is hard to trust. My answer is specification-driven, AI-assisted benchmarking: agents work from traceable requirements, and automated gates verify them on real data. It works today: two extensions on the VS Code Marketplace, eight ecosystem members under one standard, and 101 of the Benchmark Actor's 106 requirements proven. My ask is small: test the installer, correct a requirement, or implement one with your local model. The next milestone is 1 December, when the zero-overage experiment starts.
 
 </Notes>
 
@@ -48,7 +48,7 @@ In one minute: AI-assisted coding is fast, but the monthly credit runs out and t
 
 <div class="b-flow">
 <div>The pain<small>manual LabVIEW tests · overage bills · reverse-engineering</small></div>
-<div>The approach<small>specification-driven, AI-assisted coding</small></div>
+<div>The approach<small>specification-driven, AI-assisted benchmarking</small></div>
 <div class="b-hi">The goal<small>AI credit only for requirements · 0 USD overage</small></div>
 </div>
 
@@ -95,14 +95,14 @@ This is where we came from. LabVIEW code is graphical and saved as binary files,
 <div><strong>Actor Corroboration Grid <Badge kind="working" /></strong>A result counts only when independent actors agree</div>
 <div><strong>Benchmark a launch <Badge kind="working" /></strong>Capture a LabVIEW launch for icon-editor CAR tests</div>
 <div><strong>One deterministic clock <Badge kind="working" /></strong>12 FPS, paired with NI I/O Trace and DETT</div>
-<div><strong>Tag a range <Badge kind="progress" /></strong>Two markers, and a local vision model explains the range</div>
+<div><strong>Mark the spot <Badge kind="progress" /></strong>You mark where it went wrong; an agent explains that range</div>
 </div>
 
 <p class="b-banner">Break glass in case of emergency: the evidence is already captured</p>
 
 <Notes>
 
-This is where we are now: the [LabVIEW Benchmark Actor](https://github.com/svelderrainruiz/labview-benchmark-actor), built for the LabVIEW CI/CD community. Every machine with the extension is an actor with an abstract name, and there is no central results database. A result counts only when a majority of independent actors in different environments agree. I capture LabVIEW launches so a tester can cover specific icon-editor CAR tests (a CAR is NI's bug-report number). Capture is frame-locked at 12 frames per second, so timings pair with NI I/O Trace and the Desktop Execution Trace Toolkit. In progress: drop two markers, and a local vision model explains what happened to CPU, GPU, RAM and disk, with an animated clip. When something breaks, the evidence is already there.
+This is where we are now: the [LabVIEW Benchmark Actor](https://github.com/svelderrainruiz/labview-benchmark-actor), built for the LabVIEW CI/CD community. Every machine with the extension is an actor with an abstract name, and there is no central results database. A result counts only when a majority of independent actors in different environments agree. I capture LabVIEW launches so a tester can cover specific icon-editor CAR tests (a CAR is NI's bug-report number). Capture is frame-locked at 12 frames per second, so timings pair with NI I/O Trace and the Desktop Execution Trace Toolkit. In progress: you mark the spot where something went wrong, and an agent with no other context explains it; more on that in a moment. When something breaks, the evidence is already there.
 
 </Notes>
 
@@ -130,14 +130,14 @@ The Actor Corroboration Grid is how a result earns trust. Independent actors in 
 
 ---
 
-## Markers: two clicks turn a capture into tagged evidence
+## Markers: the human marks the spot, the agent explains it
 
 <div class="b-journey"><span>Came from</span><span class="on">Now</span><span>Going</span></div>
 
 <div class="b-flow">
-<div>Place two markers<small>on the capture timeline, by you or by an agent</small></div>
-<div>Local vision model<small>CPU · GPU · RAM · disk · screen, on one clock</small></div>
-<div class="b-hi">A tagged range<small>only metadata leaves the machine</small></div>
+<div>A human marks the spot<small>two markers on the benchmark, where something looked wrong</small></div>
+<div>An agent with no context<small>reads CPU · GPU · RAM · disk · screen in exactly that range</small></div>
+<div class="b-hi">Hybrid verification<small>human judgement + agent speed: faster troubleshooting</small></div>
 </div>
 
 <div class="b-tiles b-three">
@@ -146,11 +146,13 @@ The Actor Corroboration Grid is how a result earns trust. Independent actors in 
 <div><strong>Agentic docs</strong>Local agents update the documentation from the tagged facts</div>
 </div>
 
+<p class="b-banner">A marker hands the human's context to an agent that has none</p>
+
 <p class="b-foot"><Badge kind="progress" /> Specified as LBA-REQ-105, Planned until a gate proves it</p>
 
 <Notes>
 
-Here's how the markers will work. During or after a capture, you or an agent place two markers on the timeline. A local vision model then reads what happened in that range (CPU, GPU, RAM, disk and the screen), all on the capture's own clock. Three uses follow. Data tagging: the range is labelled, so it can be queried later. Video: an animated clip of exactly that range. Agentic documentation: local agents update the documentation from the tagged facts instead of guesses. Screen frames stay on the machine that captured them, and only metadata goes to the agent. It's in progress, specified as requirement 105, and stays planned until a gate proves it.
+This is what makes it a hybrid. A human watching a benchmark knows where something looked wrong; an agent starts with no context at all. The marker is the hand-off: the human places two markers on the benchmark, and that range is all the context the agent needs. A local model then reads exactly that range (CPU, GPU, RAM, disk and the screen, on one clock) and explains what happened. Human judgement says where to look; the agent brings speed and evidence. That makes troubleshooting faster, and it turns verification and validation into an AI/human hybrid method. The tagged range then becomes a data tag for later queries, an animated clip of exactly that range, and documentation that local agents update from the facts. Screen frames stay on the machine that captured them; only metadata goes to the agent. It's in progress, specified as requirement 105, and stays planned until a gate proves it.
 
 </Notes>
 
@@ -264,7 +266,7 @@ This is the part I'm proudest of. *(Switch to Obsidian: the ecosystem vault, gra
 
 <Notes>
 
-Two things make AI-assisted coding robust here. Governance: every change passes fail-closed gates before it's merged (the Benchmark Actor alone has more than 180), with independent review and every requirement traced to a test; this site deploys only if its own check passes. And facts: every working session records its AI tokens, cost and operator time in a database I own. That lets me say "this change will cost X if you do it this way", and hand documentation upkeep to local AI based on facts, not guesses.
+Two things make AI-assisted benchmarking robust here. Governance: every change passes fail-closed gates before it's merged (the Benchmark Actor alone has more than 180), with independent review and every requirement traced to a test; this site deploys only if its own check passes. And facts: every working session records its AI tokens, cost and operator time in a database I own. That lets me say "this change will cost X if you do it this way", and hand documentation upkeep to local AI based on facts, not guesses.
 
 </Notes>
 
@@ -315,7 +317,7 @@ Here's how you can take part, and no source code changes hands. Lowest effort: t
 
 <Notes>
 
-Specification-driven design is how AI-assisted coding becomes a robust and scalable CI/CD ecosystem for LabVIEW benchmarking. Everything here is public, and this briefing stays online. Thank you. Questions?
+Specification-driven, AI-assisted benchmarking is how this becomes a robust and scalable CI/CD ecosystem for LabVIEW. Everything here is public, and this briefing stays online. Thank you. Questions?
 
 </Notes>
 
