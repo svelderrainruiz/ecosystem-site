@@ -19,7 +19,7 @@ import Badge from '../../components/briefing/Badge.astro';
 
 <Notes>
 
-Thanks for making the time. Today I'll show how specification-driven, AI-assisted benchmarking becomes a robust and scalable CI/CD ecosystem for LabVIEW: where my tools are, why I built them and where they're going.
+Thanks for making the time. Today I'll show how specification-driven, AI-assisted benchmarking becomes a robust and scalable CI/CD ecosystem for LabVIEW: why I built these tools, where they came from, where they are now and where they're going.
 
 </Notes>
 
@@ -31,46 +31,30 @@ Thanks for making the time. Today I'll show how specification-driven, AI-assiste
 <div><strong>Why</strong>LabVIEW testing is manual, and AI help burns credit and is hard to trust</div>
 <div><strong>How</strong>Specification-driven, AI-assisted benchmarking: agents work from traceable requirements, and gates verify them</div>
 <div><strong>Proof</strong>2 extensions on the Marketplace · 8 ecosystem members · 101 of 106 Benchmark Actor requirements proven</div>
-<div><strong>Ask</strong>Test the installer · correct a requirement · implement one with your local LLM</div>
+<div><strong>Ask</strong>Test the installer · correct a requirement · share results from your local LLM</div>
 </div>
 
 <p class="b-banner">Next milestone: 1 December 2026, the zero-overage experiment starts</p>
 
 <Notes>
 
-In one minute: LabVIEW testing is still manual, and AI help burns monthly credit and is hard to trust. My answer is specification-driven, AI-assisted benchmarking: agents work from traceable requirements, and automated gates verify them on real data. It works today: two extensions on the VS Code Marketplace, eight ecosystem members under one standard, and 101 of the Benchmark Actor's 106 requirements proven. My ask is small: test the installer, correct a requirement, or implement one with your local model. The next milestone is 1 December, when the zero-overage experiment starts.
+In one minute: LabVIEW testing is still manual, and AI help burns monthly credit and is hard to trust. My answer is specification-driven, AI-assisted benchmarking: agents work from traceable requirements, and automated gates verify them on real data. It works today: two extensions on the VS Code Marketplace, eight ecosystem members under one standard, and 101 of the Benchmark Actor's 106 requirements proven. My ask is small: test the installer, correct a requirement, or share results from your local model. The next milestone is 1 December, when the zero-overage experiment starts.
 
 </Notes>
 
 ---
 
-## The ecosystem as one connected map
+## Why: every tool was built to serve a real goal
 
-<div class="b-graph"><img src="/ecosystem-site/briefing/ecosystem-graph.svg" alt="Link graph of the ecosystem's six public member wikis: 1,309 pages and about 6,300 links, one colour per member, joined by one ecosystem hub" /></div>
-
-<div class="b-legend"><span class="m-lba">Benchmark Actor</span><span class="m-vihs">VI History Suite</span><span class="m-lbabus">lbabus</span><span class="m-eco">Installer</span><span class="m-kit">Consumer kit</span><span class="m-pb">projectbuddy</span></div>
-
-<p class="b-status">6 public member wikis · 1,309 pages · about 6,300 links · regenerated from source, checked for drift</p>
-
-<Notes>
-
-Before the story, the result: this is the part I'm proudest of. *(Switch to Obsidian: the ecosystem vault, graph view.)* Every public member's wiki in one vault, one colour per member, joined by a hub note: 1,309 pages and about 6,300 links. *(Open Ecosystem-Hub, then the LabVIEW Benchmark Actor.)* Zoom into one member: 106 requirements, 101 of them proven by an automated gate on real data. *(Open LBA-REQ-023.)* The Actor Corroboration Grid: proven, with its test and its decisions. *(Open LBA-REQ-105.)* The markers feature is in progress but not proven yet, so the wiki says planned. It won't let me overstate anything. *(Open LBA-REQ-103.)* Even the wiki is a requirement, and it's proven. Nobody writes these pages by hand: each wiki is regenerated from its project's documents and checked for drift. To explore one yourself, clone a member's wiki, such as the [Benchmark Actor's](https://github.com/svelderrainruiz/labview-benchmark-actor/wiki), and open it in Obsidian.
-
-</Notes>
-
----
-
-## Every tool was built to serve one goal
-
-<div class="b-flow">
-<div>The pain<small>manual LabVIEW tests · overage bills · reverse-engineering</small></div>
-<div>The approach<small>specification-driven, AI-assisted benchmarking</small></div>
-<div class="b-hi">The goal<small>AI credit only for requirements · 0 USD overage</small></div>
+<div class="b-fromto">
+<div class="from">Manual LabVIEW testing</div><div class="arrow">→</div><div class="to">Benchmarks an agent can run and verify</div>
+<div class="from">Overage bills</div><div class="arrow">→</div><div class="to">AI credit only for requirements</div>
+<div class="from">Reverse-engineering source</div><div class="arrow">→</div><div class="to">Specifications that tell your agent how</div>
 </div>
 
 <Notes>
 
-None of this started as a product; each tool exists because I needed it. LabVIEW testing is still largely manual, the monthly AI credit runs out and overage bills follow, and reusing a good idea means reverse-engineering someone's source. The goal: spend AI money only where judgement is needed, on the requirements, and let local machines do the heavy lifting.
+None of this started as a product; each tool exists because I needed it, and each one serves a real goal. LabVIEW testing is still largely manual, so I want benchmarks an agent can run and verify. The monthly AI credit runs out and overage bills follow, so AI money should go only where judgement is needed: the requirements. And reusing a good idea shouldn't mean reverse-engineering someone's source; a specification should tell your agent how.
 
 </Notes>
 
@@ -118,18 +102,18 @@ This is where we came from. LabVIEW code is graphical and saved as binary files,
 
 <Notes>
 
-This is where we are now: the [LabVIEW Benchmark Actor](https://github.com/svelderrainruiz/labview-benchmark-actor), built for the LabVIEW CI/CD community. Every machine with the extension is an actor with an abstract name, and there is no central results database. A result counts only when a majority of independent actors in different environments agree. I capture LabVIEW launches so a tester can cover specific icon-editor CAR tests (a CAR is NI's bug-report number). Capture is frame-locked at 12 frames per second, so timings pair with NI I/O Trace and the Desktop Execution Trace Toolkit. In progress: you mark the spot where something went wrong, and an agent with no other context explains it; more on that in a moment. When something breaks, the evidence is already there.
+This is where we are now: the [LabVIEW Benchmark Actor](https://github.com/svelderrainruiz/labview-benchmark-actor), built for the LabVIEW CI/CD community. Every machine with the extension is an actor with an abstract name, and there is no central results database. It does four things for me. A result counts only when independent actors in different environments agree. I capture LabVIEW launches so a tester can cover specific icon-editor CAR tests (a CAR is NI's bug-report number). Capture is frame-locked at 12 frames per second, so timings pair with NI I/O Trace and the Desktop Execution Trace Toolkit. And, in progress, you mark the spot where something went wrong, and an agent with no other context explains it. When something breaks, the evidence is already there. The next two slides open up the grid and the markers.
 
 </Notes>
 
 ---
 
-## Actor Corroboration Grid: a result counts only when actors agree
+## Actor Corroboration Grid: agreement before trust
 
 <div class="b-journey"><span>Came from</span><span class="on">Now</span><span>Going</span></div>
 
 <div class="b-flow">
-<div>Independent actors<small>different environments: Linux · Linux VM · Windows</small></div>
+<div>Independent actors<small>different environments: Linux · Linux&nbsp;VM · Windows</small></div>
 <div>Same anchors?<small>series hash · bus version · gate verdict</small></div>
 <div class="b-hi">At least 2 of 3 agree<small>the release passes; if not, it is blocked and a divergence issue opens</small></div>
 </div>
@@ -146,7 +130,7 @@ The Actor Corroboration Grid is how a result earns trust. Independent actors in 
 
 ---
 
-## Markers: the human marks the spot, the agent explains it
+## Markers: a human points, the agent explains
 
 <div class="b-journey"><span>Came from</span><span class="on">Now</span><span>Going</span></div>
 
@@ -164,7 +148,7 @@ The Actor Corroboration Grid is how a result earns trust. Independent actors in 
 
 <p class="b-banner">A marker hands the human's context to an agent that has none</p>
 
-<p class="b-foot"><Badge kind="progress" /> Specified as LBA-REQ-105, Planned until a gate proves it</p>
+<p class="b-foot"><Badge kind="progress" /> Specified as LBA-REQ-105 · Planned until a gate proves it</p>
 
 <Notes>
 
@@ -174,7 +158,7 @@ This is what makes it a hybrid. A human watching a benchmark knows where somethi
 
 ---
 
-## A concentrated source of awareness for low-cost models
+## Local models, deliberate spending
 
 <div class="b-journey"><span>Came from</span><span class="on">Now</span><span>Going</span></div>
 
@@ -185,59 +169,78 @@ This is what makes it a hybrid. A human watching a benchmark knows where somethi
 <div class="b-hi">Local model<small>does the heavy lifting</small></div>
 </div>
 
-<p class="b-banner">Goal: premium AI credit for requirements only, and more speed as a planned decision, never a surprise bill</p>
-
-<Notes>
-
-Why that matters: everything condenses raw machine data into a small set of verified facts that a local or low-cost model can consume. So premium AI credit goes only to requirements. If I need more speed, that's a planned decision, buying more credit or adding another AI computer, never a surprise on the bill.
-
-</Notes>
-
----
-
-## Going: an ecosystem of developer tools, grown by specification
-
-<div class="b-journey"><span>Came from</span><span>Now</span><span class="on">Going</span></div>
-
-<div class="b-hub">
-<div class="b-core">8 members · one wiki standard · specifications first</div>
-<div>VI History Suite<small>VI history and diff</small></div>
-<div>LabVIEW Benchmark Actor<small>capture and benchmarks</small></div>
-<div>lbabus<small>actor coordination bus</small></div>
-<div>Ecosystem Runner installer<small>set-up</small></div>
-<div>projectbuddy<small>wiki generator and checker</small></div>
-<div>repo-standards-review<small>the standard (private)</small></div>
-<div>Consumer kit<small>the standard's template</small></div>
-<div>mprr<small>record and replay (private)</small></div>
+<div class="b-tiles">
+<div><strong>Premium AI credit</strong>Spent only on requirements</div>
+<div><strong>Need more speed?</strong>Plan it: more credit, or another AI computer</div>
 </div>
 
-<p class="b-next"><strong>Next:</strong> icon-editor test automation <Badge kind="next" /> · TDMS results in VS Code <Badge kind="progress" /></p>
+<p class="b-banner">One concentrated source of awareness that a low-cost model can consume</p>
 
 <Notes>
 
-Where we're going: spec-driven collaboration for a scalable ecosystem of developer tools. It has [eight members](/ecosystem-site/ecosystem/) today, from VI History Suite and the Benchmark Actor to the installer and the standard itself, and every member follows one wiki standard with its own specification, tests and wiki. Next: automating icon-editor manual tests with result verification, and TDMS-driven results in VS Code. TDMS is NI's measurement file format, and the groundwork is already in both extensions.
+Why that matters: everything condenses raw machine data into one concentrated source of awareness, a small set of verified facts that a local or low-cost model can consume. So premium AI credit goes only to requirements, and the local models do the heavy lifting. If I need more speed, that's a planned decision, buying more credit or adding another AI computer, never a surprise on the bill.
 
 </Notes>
 
 ---
 
-## The spec tells your agent how to build it
+## From specification to verified results
 
 <div class="b-journey"><span>Came from</span><span>Now</span><span class="on">Going</span></div>
 
 <div class="b-chain">
-<div>System requirements<small>SyRS</small></div>
-<div>Software requirements<small>SRS</small></div>
-<div>Tests</div>
-<div>Decisions</div>
-<div>Results</div>
+<div>System requirements<small>SyRS: what the system must do</small></div>
+<div>Software requirements<small>SRS: what each tool must do</small></div>
+<div>Tests<small>prove each requirement</small></div>
+<div>Decisions<small>record why</small></div>
+<div>Results<small>receipts you can reproduce</small></div>
 </div>
 
-<p class="b-banner">Vibe-codeable source: the spec says how, the tests show it works. We compare requirements, not source.</p>
+<p class="b-banner">Vibe-codeable: the spec tells your agent how, and the tests show it works</p>
+
+<p class="b-foot">Example: the installer's published specification has 102 requirements and 58 test items · we compare requirements, not source</p>
 
 <Notes>
 
-This is the idea I care about most: vibe-codeable source. If you like something, you shouldn't have to reverse-engineer it: the specification tells your agent how to build it, and the tests show what it does. System requirements break down into software requirements, each traced to a test and a design decision, and every link is checked automatically. The installer's [published specification](https://github.com/svelderrainruiz/ecosystem/wiki/Software-Requirements-Specification), for example, has 102 requirements and 58 test items. That's why we compare requirements, not source.
+Where we're going rests on one idea: vibe-codeable source. If you like something, you shouldn't have to reverse-engineer it: the specification tells your agent how to build it, and the tests show what it does. System requirements break down into software requirements, each traced to a test and a design decision, and every link is checked automatically. The installer's [published specification](https://github.com/svelderrainruiz/ecosystem/wiki/Software-Requirements-Specification), for example, has 102 requirements and 58 test items. That's why we compare requirements, not source, and it's what makes spec-driven collaboration scale.
+
+</Notes>
+
+---
+
+## The ecosystem in Obsidian
+
+<div class="b-journey"><span>Came from</span><span>Now</span><span class="on">Going</span></div>
+
+<div class="b-graph"><img src="/ecosystem-site/briefing/ecosystem-graph.svg" alt="Link graph of the ecosystem's six public member wikis: 1,309 pages and about 6,300 links, one colour per member, joined by one ecosystem hub" /></div>
+
+<div class="b-legend"><span class="m-lba">Benchmark Actor</span><span class="m-vihs">VI History Suite</span><span class="m-lbabus">lbabus</span><span class="m-eco">Installer</span><span class="m-kit">Consumer kit</span><span class="m-pb">projectbuddy</span></div>
+
+<p class="b-status">8 members, one wiki standard · 6 public wikis shown · 1,309 pages · about 6,300 links · regenerated from source, checked for drift</p>
+
+<Notes>
+
+This is the highlight. *(Switch to Obsidian: the ecosystem vault, graph view.)* Every public member's wiki in one vault, one colour per member, joined by a hub note: 1,309 pages and about 6,300 links. The ecosystem has eight members under one wiki standard; the two private ones publish summary pages. *(Open Ecosystem-Hub, then the LabVIEW Benchmark Actor.)* Zoom into one member: 106 requirements, 101 of them proven by an automated gate on real data. *(Open LBA-REQ-023.)* The Actor Corroboration Grid: proven, with its test and its decisions. *(Open LBA-REQ-105.)* The markers feature is in progress but not proven yet, so the wiki says planned. It won't let me overstate anything. *(Open LBA-REQ-103.)* Even the wiki is a requirement, and it's proven. Nobody writes these pages by hand: each wiki is regenerated from its project's documents and checked for drift. To explore one yourself, clone a member's wiki, such as the [Benchmark Actor's](https://github.com/svelderrainruiz/labview-benchmark-actor/wiki), and open it in Obsidian.
+
+</Notes>
+
+---
+
+## Next: automated icon-editor testing
+
+<div class="b-journey"><span>Came from</span><span>Now</span><span class="on">Going</span></div>
+
+<div class="b-tiles b-three">
+<div><Badge kind="next" /><strong>Icon-editor test automation</strong>Automate the manual tests and verify the results</div>
+<div><Badge kind="progress" /><strong>TDMS-driven results</strong>Results in a VS Code extension; the groundwork is in both extensions</div>
+<div><Badge kind="next" /><strong>Research collaboration</strong>Compare requirements, not source</div>
+</div>
+
+<p class="b-banner">Spec-driven collaboration for a scalable ecosystem of developer tools</p>
+
+<Notes>
+
+Next on the roadmap: automating the icon editor's manual tests and verifying their results, which is where the Benchmark Actor's launch captures and markers pay off. TDMS-driven results, NI's measurement file format, will show up in a VS Code extension; the groundwork is already in both extensions. And research collaboration in which we compare requirements, not source. That's spec-driven collaboration for a scalable ecosystem of developer tools.
 
 </Notes>
 
@@ -252,8 +255,8 @@ This is the idea I care about most: vibe-codeable source. If you like something,
 
 **Governance**
 
-- Fail-closed gates before every merge
-- Independent review; requirements traced to tests
+- Fail-closed gates before every merge (180+ in the Benchmark Actor)
+- Independent review; every requirement traced to a test
 
 </div>
 <div class="b-box">
@@ -268,13 +271,13 @@ This is the idea I care about most: vibe-codeable source. If you like something,
 
 <Notes>
 
-Two things make AI-assisted benchmarking robust here. Governance: every change passes fail-closed gates before it's merged (the Benchmark Actor alone has more than 180), with independent review and every requirement traced to a test; this site deploys only if its own check passes. And facts: every working session records its AI tokens, cost and operator time in a database I own. That lets me say "this change will cost X if you do it this way", and hand documentation upkeep to local AI based on facts, not guesses.
+Two things make AI-assisted benchmarking robust. Governance: every change passes fail-closed gates before it's merged (the Benchmark Actor alone has more than 180), with independent review and every requirement traced to a test; this site deploys only if its own check passes. And facts: every working session records its AI tokens, cost and operator time in a database I own. That lets me say "this change will cost X if you do it this way", and hand documentation upkeep to local AI based on facts, not guesses.
 
 </Notes>
 
 ---
 
-## The experiment: 0 USD overage, starting 1 December 2026
+## The experiment: 0 USD overage from 1 Dec 2026
 
 <div class="b-journey"><span>Came from</span><span>Now</span><span class="on">Going</span></div>
 
@@ -284,31 +287,34 @@ Two things make AI-assisted benchmarking robust here. Governance: every change p
 <div>Every month<small>a live trend, in relative figures</small></div>
 </div>
 
-<p class="b-banner">Reproducible either way: a failure can be reproduced, and so can success</p>
+<div class="b-tiles">
+<div><strong>Primary goal</strong>0 USD on overage bills</div>
+<div><strong>Reproducible either way</strong>A failure can be reproduced, and so can success</div>
+</div>
 
 <Notes>
 
-Here's the experiment. My personal goal is zero dollars in overage, which takes about 95 % fewer paid AI units a month than in November: smaller contexts, cheaper models where they're good enough, and bulk work on local models ([the programme](https://github.com/VITechnologies/projectbuddy/issues/375)). It starts on 1 December; from then on the results are live, in relative figures, and you can run the same experiment on your own bill. If it fails, you can reproduce the failure; if it works, you can reproduce that too. The secondary goal: automate icon-editor manual testing and open up research collaboration that compares requirements, not source.
+Here's the experiment. My personal goal is zero dollars in overage, which takes about 95 % fewer paid AI units a month than in November: smaller contexts, cheaper models where they're good enough, and bulk work on local models ([the programme](https://github.com/VITechnologies/projectbuddy/issues/375)). It starts on 1 December; from then on the results are live, in relative figures, and you can run the same experiment on your own bill. If it fails, you can reproduce the failure; if it works, you can reproduce that too.
 
 </Notes>
 
 ---
 
-## How you can take part, without any source changing hands
+## Take part: share evidence, never source
 
 <div class="b-journey"><span>Came from</span><span>Now</span><span class="on">Going</span></div>
 
 <div class="b-steps">
 <div><strong>1. Test the installer</strong>and raise issues · <a href="https://github.com/svelderrainruiz/ecosystem/releases">get it</a></div>
 <div><strong>2. Spend unused AI quota</strong>correcting a requirement · <a href="https://github.com/svelderrainruiz/labview-benchmark-actor/issues">issues</a></div>
-<div><strong>3. Use your local LLM</strong>to implement one requirement; your pull request is feedback for my agent · <a href="https://github.com/svelderrainruiz/labview-benchmark-actor/wiki/Requirements-Traceability-Matrix">requirements</a></div>
+<div><strong>3. Use your local LLM</strong>on one requirement; send the results and spec changes as a pull request · <a href="https://github.com/svelderrainruiz/labview-benchmark-actor/wiki/Requirements-Traceability-Matrix">requirements</a></div>
 </div>
 
 <p class="b-banner">We share results and specification changes, never source</p>
 
 <Notes>
 
-Here's how you can take part, and no source code changes hands. Lowest effort: test the installer and raise issues; it's an experimental build, so use a throwaway virtual machine. If you have AI quota left at the end of the month, spend it correcting my requirements. If you run local models, implement one system requirement and open a pull request, and my agent takes it as feedback. I'm opening up my personal tools because I want feedback, collaborators and partners.
+Here's how you can take part, and no source code changes hands. Lowest effort: test the installer and raise issues; it's an experimental build, so use a throwaway virtual machine. If you have AI quota left at the end of the month, spend it correcting my requirements. If you run local models, implement one system requirement locally and send the results and specification changes as a pull request; my agent takes it as feedback. I'm opening up my personal tools because I want feedback, collaborators and partners.
 
 </Notes>
 
@@ -316,14 +322,17 @@ Here's how you can take part, and no source code changes hands. Lowest effort: t
 
 ## Results speak for themselves
 
-- VI History Suite: [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=svelderrainruiz.vi-history-suite)
-- LabVIEW Benchmark Actor: [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=svelderrainruiz.labview-benchmark-actor)
-- The installer: [github.com/svelderrainruiz/ecosystem/releases](https://github.com/svelderrainruiz/ecosystem/releases)
-- This briefing: [svelderrainruiz.github.io/ecosystem-site/briefing](https://svelderrainruiz.github.io/ecosystem-site/briefing/)
+<div class="b-stats">
+<div><strong>2</strong>extensions on the VS Code Marketplace</div>
+<div><strong>101 / 106</strong>Benchmark Actor requirements proven</div>
+<div><strong>1,309</strong>linked wiki pages across 6 public members</div>
+</div>
+
+<p class="b-links"><a href="https://marketplace.visualstudio.com/items?itemName=svelderrainruiz.vi-history-suite">VI History Suite</a> <a href="https://marketplace.visualstudio.com/items?itemName=svelderrainruiz.labview-benchmark-actor">LabVIEW Benchmark Actor</a> <a href="https://github.com/svelderrainruiz/ecosystem/releases">The installer</a> <a href="https://svelderrainruiz.github.io/ecosystem-site/briefing/">This briefing</a></p>
 
 <Notes>
 
-Specification-driven, AI-assisted benchmarking is how this becomes a robust and scalable CI/CD ecosystem for LabVIEW. Everything here is public, and this briefing stays online. Thank you. Questions?
+Specification-driven, AI-assisted benchmarking is how this becomes a robust and scalable CI/CD ecosystem for LabVIEW. Two extensions on the Marketplace, 101 of 106 requirements proven, and 1,309 linked wiki pages. Everything linked here is public, and this briefing stays online. Thank you. Questions?
 
 </Notes>
 
