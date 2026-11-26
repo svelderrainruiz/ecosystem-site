@@ -236,16 +236,16 @@ What comes next rests on one loop between requirements and source. I reverse-eng
 <div>Human markers<small>point to the exact moment that matters</small></div>
 <div>Movement as metadata<small>recorded with the capture</small></div>
 <div>Replay<small>in development</small></div>
-<div class="b-hi">Automated test<small>possible once replay is ready</small></div>
+<div class="b-hi">Bugs found sooner<small>a local agent verifies each run on your setup</small></div>
 </div>
 
-<p class="b-banner">Recorded once by a human, replayed by an agent</p>
+<p class="b-banner">Shown once by a human, verified by an agent on your own setup</p>
 
 <p class="b-foot">labview-icon-editor · capture works today · markers in progress · replay in development</p>
 
 <Notes>
 
-Next, the icon editor. For the labview-icon-editor repository, capturing a LabVIEW launch opens LabVIEW and records how the installed icon editor behaves. A human places markers at the moments that matter, and the movement is captured as metadata. Once the replay part is developed, those recorded steps could become automated tests whose results are verified. TDMS-driven results in a VS Code extension are in progress too, and I'd welcome research collaboration that compares requirements, not source.
+Next, the icon editor's manual tests. For the labview-icon-editor repository, capturing a LabVIEW launch opens LabVIEW and records how the installed icon editor behaves. A human places markers at the moments that matter, and the movement is captured as metadata. Once replay is developed, an agent re-runs those steps and verifies the result locally, on your own setup: your LabVIEW version, your hardware. A human shows the test once, and agents verify it on every setup where it runs, so bugs are found sooner, the same idea as the corroboration grid. TDMS-driven results in a VS Code extension are in progress too, and I'd welcome research collaboration that compares requirements, not source.
 
 </Notes>
 
@@ -335,7 +335,7 @@ Here's how you can take part: all you need is the installer, and no source code 
 **LabVIEW Benchmark Actor**
 
 - <Badge kind="working" /> Capture LabVIEW runs as evidence, corroborated by independent machines
-- <Badge kind="progress" /> Human markers, tools for local models, and replay for icon-editor tests
+- <Badge kind="progress" /> Human markers, tools for local models, and local verification of icon-editor tests
 
 </div>
 </div>
@@ -344,7 +344,7 @@ Here's how you can take part: all you need is the installer, and no source code 
 
 <Notes>
 
-To close, what the two extensions do. VI History Suite compares any two VI versions visually, and AI agents can run those comparisons; TDMS-driven results reviewed in VS Code are in progress. The LabVIEW Benchmark Actor captures LabVIEW runs as evidence that independent machines corroborate; human markers, tools that local models can call, and replay for icon-editor tests come next. Both are on the VS Code Marketplace, and this briefing stays online. Results speak for themselves. Thank you. Questions?
+To close, what the two extensions do. VI History Suite compares any two VI versions visually, and AI agents can run those comparisons; TDMS-driven results reviewed in VS Code are in progress. The LabVIEW Benchmark Actor captures LabVIEW runs as evidence that independent machines corroborate; human markers, tools that local models can call, and local verification of icon-editor tests come next. Both are on the VS Code Marketplace, and this briefing stays online. Results speak for themselves. Thank you. Questions?
 
 </Notes>
 
