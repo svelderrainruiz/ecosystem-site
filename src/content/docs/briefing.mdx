@@ -62,8 +62,6 @@ None of this started as a product; each tool exists because I needed it. LabVIEW
 
 ## Started: what changed in this VI?
 
-<div class="b-journey"><span class="on">Started</span><span>Today</span><span>Next</span></div>
-
 <div class="b-cols">
 <div>
 
@@ -87,32 +85,32 @@ It started with a practical question: what changed in this VI? LabVIEW code is g
 
 ---
 
-## Today: LabVIEW runs captured as evidence
+## Today: how a LabVIEW run becomes evidence
 
-<div class="b-journey"><span>Started</span><span class="on">Today</span><span>Next</span></div>
+<div class="b-shot b-shot-sm"><img src="/ecosystem-site/briefing/lba-frame-correlator.png" alt="The Frame Correlator in VS Code: CPU, RAM and disk activity for every captured frame of a LabVIEW launch, with a red line marking one instant" /><p class="b-cap">One clock, 12 frames per second: every signal is stored against the frame it happened in, and the red line is one instant</p></div>
 
-<div class="b-shot"><img src="/ecosystem-site/briefing/lba-frame-correlator.png" alt="The Frame Correlator in VS Code: CPU, RAM and disk activity for every captured frame of a LabVIEW launch, with a red line to scrub through the frames" /><p class="b-cap">Frame Correlator: CPU, RAM and disk for every frame of a LabVIEW launch; drag the red line to see the screen at that instant</p></div>
+<p class="b-head">Captured at that instant, within an agent's reach</p>
 
-<div class="b-tiles b-four">
-<div><Badge kind="working" /><strong>Corroboration Grid</strong>Independent machines must agree</div>
-<div><Badge kind="working" /><strong>Capture a launch</strong>Covers icon-editor bug (CAR) tests</div>
-<div><Badge kind="working" /><strong>Deterministic clock</strong>12 FPS, pairs with NI I/O Trace and DETT</div>
-<div><Badge kind="working" /><strong>Mark the spot</strong>Click a frame to drop a marker</div>
+<div class="b-tiles b-three b-six">
+<div><Badge kind="working" /><strong>A visual cue</strong>the screen the user saw</div>
+<div><Badge kind="working" /><strong>A marker</strong>a human points at the cue</div>
+<div><Badge kind="next" /><strong>The code that ran</strong><abbr title="LabVIEW Desktop Execution Trace Toolkit">DETT</abbr> or NI I/O Trace log</div>
+<div><Badge kind="working" /><strong>CPU · RAM · disk</strong>per frame; GPU in progress</div>
+<div><Badge kind="working" /><strong>Mouse events</strong>cursor and clicks; keyboard next</div>
+<div><Badge kind="working" /><strong>Repeated runs</strong>statistics on what changed</div>
 </div>
 
-<p class="b-banner">Break glass in case of emergency: the evidence is already captured</p>
+<p class="b-banner">The agent points to design flaws that only a specialist knows how to interpret <Badge kind="progress" /></p>
 
 <Notes>
 
-Today, the [LabVIEW Benchmark Actor](https://github.com/svelderrainruiz/labview-benchmark-actor) turns LabVIEW runs into evidence. This is its Frame Correlator: CPU, RAM and disk for every frame of a LabVIEW launch, and dragging the red line shows the screen at that instant. Every machine with the extension is an actor with an abstract name, and a result counts only when independent actors agree. Capturing a LabVIEW launch lets a tester cover specific icon-editor CAR tests; a CAR is NI's bug-report number. The capture runs on a fixed clock of 12 frames per second, so its timings line up with NI I/O Trace and the Desktop Execution Trace Toolkit. And a human can click any frame to drop a marker. When something breaks, the evidence is already there.
+Here's how the [LabVIEW Benchmark Actor](https://github.com/svelderrainruiz/labview-benchmark-actor) turns a LabVIEW run into evidence. It records the screen 12 times per second on one fixed clock and stores every other signal against the frame it happened in: CPU, RAM and disk for each frame, plus the mouse position and clicks, recorded by a small LabVIEW application that reacts to every new frame. The red line in this Frame Correlator is one instant; drag it and everything at that instant comes with it. That links a visual cue on the screen to the marker a human drops on it and, next, to the log of the code that ran, from the LabVIEW Desktop Execution Trace Toolkit or NI I/O Trace; the fixed clock is what lets those timings line up. Repeated runs add statistics (requirement 32): what changed between runs, and by how much. Put together, an agent has within reach what code executed, how the machine behaved, what the user did and what changed across runs. That points to design flaws that only a technical specialist would know how to interpret, and the specialist makes the call. Captured today: the screen, CPU, RAM and disk, mouse events, markers and repeated-run statistics. GPU samples and the agent's explanation are in progress (requirement 105); the trace logs and keyboard events are next.
 
 </Notes>
 
 ---
 
 ## Actor Corroboration Grid: agreement before trust
-
-<div class="b-journey"><span>Started</span><span class="on">Today</span><span>Next</span></div>
 
 <div class="b-flow">
 <div>Independent actors<small>different setups: Linux · Linux&nbsp;VM · Windows</small></div>
@@ -133,8 +131,6 @@ The Actor Corroboration Grid is how a result earns trust. Independent actors on 
 ---
 
 ## Markers: a human points, the agent explains
-
-<div class="b-journey"><span>Started</span><span class="on">Today</span><span>Next</span></div>
 
 <div class="b-shot"><img src="/ecosystem-site/briefing/lba-markers.png" alt="Three markers, shown as orange triangles, dropped by a human on a captured LabVIEW launch in the Frame Correlator" /><p class="b-cap">Three markers (orange) dropped by a human on a captured LabVIEW launch; each one grabs the nearest frame</p></div>
 
@@ -157,8 +153,6 @@ A human watching a benchmark knows where something looked wrong; an agent starts
 ---
 
 ## The local LLM loop
-
-<div class="b-journey"><span>Started</span><span class="on">Today</span><span>Next</span></div>
 
 <div class="b-flow">
 <div>Hooks<small>every agent session is recorded automatically</small></div>
@@ -185,8 +179,6 @@ This is the core of the plan. Hooks record every agent session automatically in 
 
 ## Requirements and source in one loop
 
-<div class="b-journey"><span>Started</span><span>Today</span><span class="on">Next</span></div>
-
 <div class="b-chain">
 <div>My source<small>reverse-engineered into requirements</small></div>
 <div>System requirements<small>SyRS: what the system must do</small></div>
@@ -209,8 +201,6 @@ What comes next rests on one loop between requirements and source. I reverse-eng
 
 ## The ecosystem in Obsidian
 
-<div class="b-journey"><span>Started</span><span>Today</span><span class="on">Next</span></div>
-
 <div class="b-graph"><img src="/ecosystem-site/briefing/ecosystem-graph.svg" alt="Link graph of the ecosystem's six public member wikis: 1,309 pages and about 6,300 links, one colour per member, joined by one ecosystem hub" /></div>
 
 <div class="b-legend"><span class="m-lba">Benchmark Actor</span><span class="m-vihs">VI History Suite</span><span class="m-lbabus">lbabus</span><span class="m-eco">Installer</span><span class="m-kit">Consumer kit</span><span class="m-pb">projectbuddy</span></div>
@@ -226,8 +216,6 @@ What comes next rests on one loop between requirements and source. I reverse-eng
 ---
 
 ## Next: automating the icon editor's manual tests
-
-<div class="b-journey"><span>Started</span><span>Today</span><span class="on">Next</span></div>
 
 <div class="b-flow b-five">
 <div>Capture a launch<small>open LabVIEW, record how the installed icon editor behaves</small></div>
