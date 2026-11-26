@@ -51,8 +51,6 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   .slide .b-title { font-size: 56px; }
   .slide .b-sub { font-size: 26px; max-width: 1000px; }
   .slide .b-meta { font-size: 20px; }
-  .slide .b-journey { position: absolute; right: 28px; bottom: 14px; margin: 0; }
-  .slide .b-journey span { font-size: 14px; }
   .slide .b-flow, .slide .b-chain, .slide .b-timeline, .slide .b-tiles, .slide .b-hub { font-size: 25px; }
   .slide .b-tiles > div { padding: 14px 18px; }
   .slide .b-tiles strong { font-size: 1.05em; margin-bottom: 6px; }
@@ -74,6 +72,13 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
   .slide .b-banner { font-size: 27px; background: #eff6ff; padding: 12px 20px; border-radius: 0 10px 10px 0; }
   .slide .b-fromto { font-size: 28px; gap: 14px 22px; }
   .slide .b-fromto > div { padding: 16px 22px; }
+  .slide .b-shot img { max-height: 200px; width: auto; }
+  .slide .b-shot.b-shot-sm img { max-height: 140px; }
+  .slide .b-head { font-size: 18px; margin: 6px 0 0; }
+  .slide .b-cap { font-size: 18px; }
+  .slide .b-tiles.b-four > div { padding: 12px 14px; font-size: 21px; }
+  .slide .b-tiles.b-six { margin: 6px 0 10px; }
+  .slide .b-tiles.b-six > div { padding: 8px 14px; font-size: 21px; line-height: 1.25; }
   .slide .b-flow.b-five > div { padding: 16px 10px; }
   .slide .b-flow.b-five small { font-size: 18px; }
   .slide .b-box li .b-badge:first-child { margin-left: 0; margin-right: 6px; }
@@ -126,14 +131,14 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     return n.innerHTML;
   });
   const titles = slides.map((s, k) => s.querySelector('h2')?.textContent ?? (k === 0 ? 'Title' : `Slide ${k + 1}`));
-  // Title at the top, everything else centred in the space below it; the journey tracker sits in a corner.
+  // Title at the top, everything else centred in the space below it.
   for (const s of slides) {
     const head = Array.from(s.children).find((c) => c.matches('h2') || c.querySelector('h2'));
     if (!head) continue;
     const body = document.createElement('div');
     body.className = 'slide-body';
     for (const node of Array.from(s.childNodes)) {
-      if (node === head || (node.nodeType === 1 && node.classList.contains('b-journey'))) continue;
+      if (node === head) continue;
       body.appendChild(node);
     }
     s.appendChild(body);
