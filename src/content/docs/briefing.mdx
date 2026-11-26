@@ -8,7 +8,7 @@ import Badge from '../../components/briefing/Badge.astro';
 
 <Styles />
 
-<p class="b-pageonly">Briefing of 26 November 2026. <a href="/ecosystem-site/briefing/slides/">Present it as slides</a>: ← → to move, N for notes, F for full screen. Every figure was checked against its public source that day.</p>
+<p class="b-pageonly">Briefing of 26 November 2026. <a href="/ecosystem-site/briefing/slides/">Present it as slides</a>: ← → to move, N for notes, F for full screen. Every figure was checked against its public source that day. Questions and discussion: <a href="https://github.com/svelderrainruiz/ecosystem/discussions">ecosystem Discussions</a>, the one public place to start.</p>
 
 <div class="b-cover">
 <img class="b-cover-bg" src="/ecosystem-site/briefing/ecosystem-graph.svg" alt="" />
@@ -31,14 +31,14 @@ Thanks for making the time. This is a short story: why I built these tools, wher
 <div><strong>Why</strong>LabVIEW testing is manual, and AI help burns credit and is hard to trust</div>
 <div><strong>How</strong>Specification-driven, AI-assisted benchmarking, with a growing local LLM loop for the heavy lifting</div>
 <div><strong>Today</strong>Two VS Code extensions: one compares VI versions, one captures and corroborates LabVIEW runs</div>
-<div><strong>Ask</strong>Test the installer · correct a requirement · share results from your local LLM</div>
+<div><strong>Ask</strong>Test the installer · correct a requirement · share local-LLM results · start in Discussions</div>
 </div>
 
 <p class="b-banner">Next milestone: 1 December 2026, the zero-overage experiment starts</p>
 
 <Notes>
 
-In one minute. LabVIEW testing is still manual, and AI help burns monthly credit and is hard to trust. My approach is specification-driven, AI-assisted benchmarking, with a local LLM loop that takes over more of the heavy lifting over time. Today there are two VS Code extensions: one compares VI versions, the other captures LabVIEW runs and has independent machines corroborate them. My ask: test the installer, correct a requirement, or share results from your local model. The next milestone is 1 December, when the zero-overage experiment starts.
+In one minute. LabVIEW testing is still manual, and AI help burns monthly credit and is hard to trust. My approach is specification-driven, AI-assisted benchmarking, with a local LLM loop that takes over more of the heavy lifting over time. Today there are two VS Code extensions: one compares VI versions, the other captures LabVIEW runs and has independent machines corroborate them. My ask: test the installer, correct a requirement, or share results from your local model, and start any of it in one public place, the ecosystem Discussions. The next milestone is 1 December, when the zero-overage experiment starts.
 
 </Notes>
 
@@ -305,15 +305,15 @@ Here's the experiment. My personal goal is zero dollars in overage, which takes 
 
 <div class="b-steps">
 <div><strong>1. Test the installer</strong>and raise issues · <a href="https://github.com/svelderrainruiz/ecosystem/releases">get it</a></div>
-<div><strong>2. Spend unused AI quota</strong>correcting a requirement · <a href="https://github.com/svelderrainruiz/labview-benchmark-actor/issues">issues</a></div>
+<div><strong>2. Spend unused AI quota</strong>correcting a requirement · <a href="https://github.com/svelderrainruiz/ecosystem/discussions">Discussions</a></div>
 <div><strong>3. Use your local LLM</strong>on one system requirement; send results and spec changes as a pull request · <a href="https://github.com/svelderrainruiz/labview-benchmark-actor/wiki/Requirements-Traceability-Matrix">requirements</a></div>
 </div>
 
-<p class="b-banner">We share results and specification changes, never source</p>
+<p class="b-banner">One public place to start: <a href="https://github.com/svelderrainruiz/ecosystem/discussions">ecosystem Discussions</a></p>
 
 <Notes>
 
-Here's how you can take part: all you need is the installer, and no source code changes hands. Lowest effort: test the installer and raise issues; it's an experimental build, so use a throwaway virtual machine. If you have AI quota left at the end of the month, spend it correcting my requirements. If you run local models, implement one system requirement locally and send the results and specification changes as a pull request; my agent takes it as feedback. I'm opening up my personal tools because I want feedback, collaborators and partners.
+Here's how you can take part: all you need is the installer, and no source code changes hands. Questions, ideas and corrections all start in one public place, the ecosystem Discussions, so you don't need to know which repository to use. Lowest effort: test the installer and raise issues; it's an experimental build, so use a throwaway virtual machine. If you have AI quota left at the end of the month, spend it correcting my requirements. If you run local models, implement one system requirement locally and send the results and specification changes as a pull request; my agent takes it as feedback. I'm opening up my personal tools because I want feedback, collaborators and partners.
 
 </Notes>
 
@@ -340,11 +340,13 @@ Here's how you can take part: all you need is the installer, and no source code 
 </div>
 </div>
 
+<p class="b-banner">Questions after today? <a href="https://github.com/svelderrainruiz/ecosystem/discussions">github.com/svelderrainruiz/ecosystem/discussions</a></p>
+
 <p class="b-links"><a href="https://marketplace.visualstudio.com/items?itemName=svelderrainruiz.vi-history-suite">VI History Suite</a> <a href="https://marketplace.visualstudio.com/items?itemName=svelderrainruiz.labview-benchmark-actor">LabVIEW Benchmark Actor</a> <a href="https://github.com/svelderrainruiz/ecosystem/releases">The installer</a> <a href="https://svelderrainruiz.github.io/ecosystem-site/briefing/">This briefing</a></p>
 
 <Notes>
 
-To close, what the two extensions do. VI History Suite compares any two VI versions visually, and AI agents can run those comparisons; TDMS-driven results reviewed in VS Code are in progress. The LabVIEW Benchmark Actor captures LabVIEW runs as evidence that independent machines corroborate; human markers, tools that local models can call, and local verification of icon-editor tests come next. Both are on the VS Code Marketplace, and this briefing stays online. Results speak for themselves. Thank you. Questions?
+To close, what the two extensions do. VI History Suite compares any two VI versions visually, and AI agents can run those comparisons; TDMS-driven results reviewed in VS Code are in progress. The LabVIEW Benchmark Actor captures LabVIEW runs as evidence that independent machines corroborate; human markers, tools that local models can call, and local verification of icon-editor tests come next. Both are on the VS Code Marketplace, and this briefing stays online. If you have questions after today, there is one public place for them: the ecosystem Discussions. Results speak for themselves. Thank you. Questions?
 
 </Notes>
 
