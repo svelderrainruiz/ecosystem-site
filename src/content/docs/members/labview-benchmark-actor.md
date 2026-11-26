@@ -5,7 +5,7 @@ sidebar:
 editUrl: false
 ---
 
-*Source: the lba wiki, `Home.md` at commit `3bcdbdd`. This page is copied as it stands, links to wiki pages that the site doesn't carry go to the wiki.*
+*Source: the lba wiki, `Home.md` at commit `b1004ea`. This page is copied as it stands, links to wiki pages that the site doesn't carry go to the wiki.*
 
 The spec-driven documentation of [labview-benchmark-actor](https://github.com/svelderrainruiz/labview-benchmark-actor), a VS Code extension for benchmarking LabVIEW across Codespaces, golden VMs, and a coordination mesh.
 
@@ -15,10 +15,10 @@ Every page is generated from the repository's `docs/` folder on `develop` by `wi
 
 ## Specifications
 
-- [Software-Requirements-Specification](https://github.com/svelderrainruiz/labview-benchmark-actor/wiki/Software-Requirements-Specification): 103 requirements, one page each under `requirements/`.
+- [Software-Requirements-Specification](https://github.com/svelderrainruiz/labview-benchmark-actor/wiki/Software-Requirements-Specification): 106 requirements, one page each under `requirements/`.
 - [Requirements-Traceability-Matrix](https://github.com/svelderrainruiz/labview-benchmark-actor/wiki/Requirements-Traceability-Matrix): each requirement with its status and tests.
-- [Architecture-Packet](https://github.com/svelderrainruiz/labview-benchmark-actor/wiki/Architecture-Packet): the architecture description; 90 decisions in [ADR-Index](https://github.com/svelderrainruiz/labview-benchmark-actor/wiki/ADR-Index).
-- [Test-Plan](https://github.com/svelderrainruiz/labview-benchmark-actor/wiki/Test-Plan): 103 test items, one page each under `tests/`: 97 canonical, 6 stub.
+- [Architecture-Packet](https://github.com/svelderrainruiz/labview-benchmark-actor/wiki/Architecture-Packet): the architecture description; 95 decisions in [ADR-Index](https://github.com/svelderrainruiz/labview-benchmark-actor/wiki/ADR-Index).
+- [Test-Plan](https://github.com/svelderrainruiz/labview-benchmark-actor/wiki/Test-Plan): 106 test items, one page each under `tests/`: 100 canonical, 6 stub.
 
 ## Information for users
 
@@ -27,6 +27,7 @@ Every page is generated from the repository's `docs/` folder on `develop` by `wi
 - [Conformance-Boundary](https://github.com/svelderrainruiz/labview-benchmark-actor/wiki/Conformance-Boundary): Information for Users — Conformance Boundary
 - [Delivery-Profile](https://github.com/svelderrainruiz/labview-benchmark-actor/wiki/Delivery-Profile): Delivery Profile
 - [FAQ](https://github.com/svelderrainruiz/labview-benchmark-actor/wiki/FAQ): FAQ
+- [Fork-And-Wiki-Guide](https://github.com/svelderrainruiz/labview-benchmark-actor/wiki/Fork-And-Wiki-Guide): Fork and wiki guide
 - [Getting-Started](https://github.com/svelderrainruiz/labview-benchmark-actor/wiki/Getting-Started): Getting Started
 - [Glossary](https://github.com/svelderrainruiz/labview-benchmark-actor/wiki/Glossary): Glossary
 - [Join-The-Mesh](https://github.com/svelderrainruiz/labview-benchmark-actor/wiki/Join-The-Mesh): Join the Mesh
@@ -83,6 +84,7 @@ Every page is generated from the repository's `docs/` folder on `develop` by `wi
 - [Definition-Of-Done](https://github.com/svelderrainruiz/labview-benchmark-actor/wiki/Definition-Of-Done)
 - [Delivery-Profile](https://github.com/svelderrainruiz/labview-benchmark-actor/wiki/Delivery-Profile)
 - [FAQ](https://github.com/svelderrainruiz/labview-benchmark-actor/wiki/FAQ)
+- [Fork-And-Wiki-Guide](https://github.com/svelderrainruiz/labview-benchmark-actor/wiki/Fork-And-Wiki-Guide)
 - [Getting-Started](https://github.com/svelderrainruiz/labview-benchmark-actor/wiki/Getting-Started)
 - [Glossary](https://github.com/svelderrainruiz/labview-benchmark-actor/wiki/Glossary)
 - [Information-For-Users-Plan](https://github.com/svelderrainruiz/labview-benchmark-actor/wiki/Information-For-Users-Plan)
