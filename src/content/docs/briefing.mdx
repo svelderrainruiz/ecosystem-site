@@ -11,7 +11,7 @@ import Badge from '../../components/briefing/Badge.astro';
 <p class="b-pageonly">Given on 26 November 2026. Read it here, or <a href="/ecosystem-site/briefing/slides/">present it as slides</a> (arrow keys to move, N for notes, F for full screen). Every figure was checked against its public source that day.</p>
 
 <div class="b-cover">
-<img class="b-cover-bg" src="/ecosystem-site/briefing/lba-wiki-graph.svg" alt="" />
+<img class="b-cover-bg" src="/ecosystem-site/briefing/ecosystem-graph.svg" alt="" />
 <p class="b-title">Specification-Driven Design for Scalable AI Tooling</p>
 <p class="b-sub">Discover how specification-driven design can turn AI-assisted coding into a robust and scalable CI/CD ecosystem for LabVIEW benchmarking.</p>
 <div class="b-journey"><span>Came from: VI History Suite</span><span>Now: LabVIEW Benchmark Actor</span><span>Going: the ecosystem</span></div>
@@ -127,7 +127,7 @@ Why does that matter? It all condenses raw machine data into one concentrated so
 <div>VI History Suite<small>VI history and diff</small></div>
 <div>LabVIEW Benchmark Actor<small>launch capture and benchmarks</small></div>
 <div>lbabus<small>the actors' coordination bus</small></div>
-<div>Ecosystem Runner installer<small>set-up, published as test kits</small></div>
+<div>Ecosystem Runner installer<small>set-up, published as test builds</small></div>
 <div>projectbuddy<small>hosts the wiki generator and checker</small></div>
 <div>repo-standards-review<small>the standard (private, summary only)</small></div>
 <div>Consumer kit<small>the standard's public template</small></div>
@@ -171,17 +171,17 @@ This is the idea I care about most: making the source "vibe-codeable". If you li
 
 ---
 
-## The whole project as one connected map
+## The whole ecosystem as one connected map
 
-<div class="b-graph"><img src="/ecosystem-site/briefing/lba-wiki-graph.svg" alt="Link graph of the LabVIEW Benchmark Actor wiki: 380 pages and about 3,000 links" /></div>
+<div class="b-graph"><img src="/ecosystem-site/briefing/ecosystem-graph.svg" alt="Link graph of the ecosystem's six public member wikis: 1,309 pages and about 6,300 links, one colour per member, joined by one ecosystem hub" /></div>
 
-<div class="b-legend"><span class="req">106 requirements</span><span class="test">106 test items</span><span class="adr">95 design decisions</span><span>73 other pages</span></div>
+<div class="b-legend"><span class="m-lba">LabVIEW Benchmark Actor</span><span class="m-vihs">VI History Suite</span><span class="m-lbabus">lbabus</span><span class="m-eco">Installer</span><span class="m-kit">Consumer kit</span><span class="m-pb">projectbuddy</span></div>
 
-<p class="b-status">89 of 106 requirements Proven · 12 Proposed · 4 Planned · 1 Superseded. Drawn from the wiki published on 25 November 2026: regenerated from the project's documents on every change, never edited by hand, and checked for drift after every publish. Open it yourself: clone the <a href="https://github.com/svelderrainruiz/labview-benchmark-actor/wiki">wiki</a>, then "Open folder as vault" in Obsidian.</p>
+<p class="b-status">1,309 pages and about 6,300 links across six public member wikis: every dot is a page, every line a link. Zoom into one member: the LabVIEW Benchmark Actor has 106 requirements, 101 of them Proven in its traceability matrix, 4 Planned and 1 Superseded. Each wiki is regenerated from its project's documents on every change, never edited by hand, and checked for drift. Open one yourself: clone a member's wiki, such as the <a href="https://github.com/svelderrainruiz/labview-benchmark-actor/wiki">Benchmark Actor's</a>, then "Open folder as vault" in Obsidian.</p>
 
 <Notes>
 
-This is the part I'm proudest of. *(Switch to Obsidian.)* This is the Benchmark Actor's wiki, opened as an Obsidian vault; the picture on this page is drawn from the same pages. Every dot is a page: 380 of them, with about 3,000 links between them, covering 106 requirements, 106 test items and 95 design decisions. 89 of the 106 requirements are proven, which means an automated gate proved them on real data. The rest show openly as proposed or planned. *(Open LBA-REQ-023.)* Here's the Actor Corroboration Grid from earlier: proven, with its test and the decisions that cite it. *(Open LBA-REQ-105.)* And here's the markers feature: planned. The wiki won't let me overstate anything. *(Open LBA-REQ-103.)* Even this wiki is a requirement, number 103, and it's proven. Nobody writes these pages by hand. They're regenerated from the project documents on every change and checked for drift after each publish. You can open it yourself: clone the wiki and open the folder as a vault.
+This is the part I'm proudest of. *(Switch to Obsidian: the ecosystem vault, graph view.)* This is the whole ecosystem: every public member's wiki in one Obsidian vault, each member in its own colour, joined by one hub note. That's 1,309 pages and about 6,300 links; every dot is a page and every line is a link, and the picture on this page is drawn from the same wikis. *(Open the Ecosystem-Hub note, then the LabVIEW Benchmark Actor.)* Let's zoom into one member. The Benchmark Actor has 106 requirements, and its traceability matrix shows 101 of them proven, which means an automated gate proved them on real data. *(Open LBA-REQ-023.)* Here's the Actor Corroboration Grid from earlier: proven, with its test and the decisions that cite it. *(Open LBA-REQ-105.)* And here's the markers feature: planned. The wiki won't let me overstate anything. *(Open LBA-REQ-103.)* Even this wiki is a requirement, number 103, and it's proven. Nobody writes these pages by hand: every member regenerates its wiki from its own documents and checks it for drift. You can open them yourself.
 
 </Notes>
 
@@ -246,14 +246,14 @@ Here's the experiment. My personal goal is zero dollars in overage. Getting ther
 <p class="b-banner">We share results and specification changes, never source. Why I'm opening this up: feedback, collaborators and partners.</p>
 
 <div class="b-steps">
-<div><strong>1. Test the installer</strong>and raise issues: <a href="https://github.com/svelderrainruiz/ecosystem/releases">test kits</a></div>
+<div><strong>1. Test the installer</strong>and raise issues: <a href="https://github.com/svelderrainruiz/ecosystem/releases">the installer</a></div>
 <div><strong>2. Spend unused AI quota</strong>correcting my requirements and raising issues: <a href="https://github.com/svelderrainruiz/labview-benchmark-actor/issues">issues</a></div>
 <div><strong>3. Use your local LLM</strong>on one system requirement, then send a pull request: <a href="https://github.com/svelderrainruiz/labview-benchmark-actor/wiki/Requirements-Traceability-Matrix">requirements and their status</a></div>
 </div>
 
 <Notes>
 
-Here's how you can take part, and no source code changes hands: we share results and specification changes. Start with the lowest effort: test the installer and raise issues. The kits are experimental pre-releases, so use a throwaway virtual machine. Each kit comes with a step-by-step check and checksums. If you have AI quota left at the end of the month, spend it correcting my requirements. And if you run local models, implement one specific system requirement and open a pull request, and my agent will take it as feedback. I'm opening up my personal tools because I want feedback, collaborators and partners.
+Here's how you can take part, and no source code changes hands: we share results and specification changes. Start with the lowest effort: test the installer and raise issues. It's an experimental test build, so run it in a throwaway virtual machine. If you have AI quota left at the end of the month, spend it correcting my requirements. And if you run local models, implement one specific system requirement and open a pull request, and my agent will take it as feedback. I'm opening up my personal tools because I want feedback, collaborators and partners.
 
 </Notes>
 
@@ -266,7 +266,7 @@ Here's how you can take part, and no source code changes hands: we share results
 - VI History Suite: [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=svelderrainruiz.vi-history-suite)
 - LabVIEW Benchmark Actor: [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=svelderrainruiz.labview-benchmark-actor)
 - The wiki, an Obsidian vault: [github.com/svelderrainruiz/labview-benchmark-actor/wiki](https://github.com/svelderrainruiz/labview-benchmark-actor/wiki)
-- Installer test kits: [github.com/svelderrainruiz/ecosystem/releases](https://github.com/svelderrainruiz/ecosystem/releases)
+- The installer, an experimental test build: [github.com/svelderrainruiz/ecosystem/releases](https://github.com/svelderrainruiz/ecosystem/releases)
 - This briefing: [svelderrainruiz.github.io/ecosystem-site/briefing](https://svelderrainruiz.github.io/ecosystem-site/briefing/)
 
 <Notes>
@@ -305,25 +305,14 @@ For questions after the talk.
 
 ---
 
-## What's in an installer test kit
-
-- `installer.exe`: the interactive installer (NSIS 3.10), an experimental test build
-- `VM-TEST.md`: a step-by-step check (T1 to T24) for a throwaway Windows VM
-- `vm-state.ps1`: a read-only state report after install, repair and uninstall
-- `SHA256SUMS`: checksums to verify before running anything
-
-Kits are published as GitHub pre-releases named `installer-test-` followed by 12 hex digits of the commit they were built from.
-
----
-
 ## Where it is today, in numbers
 
 | What | Where it stands on 26 November 2026 |
 |---|---|
 | VS Code Marketplace | VI History Suite 1.36.1 · LabVIEW Benchmark Actor 1.6.7 |
 | Ecosystem | 8 members, one wiki standard |
-| LabVIEW Benchmark Actor requirements | 106: 89 Proven, 12 Proposed, 4 Planned, 1 Superseded |
+| LabVIEW Benchmark Actor requirements | 106 in its traceability matrix: 101 Proven, 4 Planned, 1 Superseded |
 | Cross-plane benchmark grid | 2 benchmarks proven across 4 planes, 0 determinism violations |
 | Automated gates | 180+ fail-closed gates on the development branch |
 | Installer specification (published) | 102 requirements, 58 test items |
-| Installer test kits | Experimental pre-releases, the latest on 25 November 2026 |
+| Installer | Experimental test builds, the latest on 25 November 2026 |
