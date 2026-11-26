@@ -14,12 +14,12 @@ import Badge from '../../components/briefing/Badge.astro';
 <img class="b-cover-bg" src="/ecosystem-site/briefing/ecosystem-graph.svg" alt="" />
 <p class="b-title">Specification-Driven Design for Scalable AI Tooling</p>
 <p class="b-sub">Discover how specification-driven design can turn AI-assisted coding into a robust and scalable CI/CD ecosystem for LabVIEW benchmarking.</p>
-<p class="b-meta">26 November 2026 · A status update, not a sales pitch</p>
+<p class="b-meta">26 November 2026</p>
 </div>
 
 <Notes>
 
-Thanks for making the time. Today I'll show how specification-driven design can turn AI-assisted coding into a robust and scalable CI/CD ecosystem for LabVIEW benchmarking. This is not a sales pitch: I'll show where my tools are, why I built them and where they're going.
+Thanks for making the time. Today I'll show how specification-driven design can turn AI-assisted coding into a robust and scalable CI/CD ecosystem for LabVIEW benchmarking: where my tools are, why I built them and where they're going.
 
 </Notes>
 
@@ -100,9 +100,59 @@ This is where we came from. LabVIEW code is graphical and saved as binary files,
 
 <p class="b-banner">Break glass in case of emergency: the evidence is already captured</p>
 
+<p class="b-foot">Your own golden VM: Ubuntu 24.04 + LabVIEW 2026 Community Edition · 13 MCP tools for agents · v1.6.7 on the Marketplace</p>
+
 <Notes>
 
 This is where we are now: the [LabVIEW Benchmark Actor](https://github.com/svelderrainruiz/labview-benchmark-actor), built for the LabVIEW CI/CD community. Every machine with the extension is an actor with an abstract name, and there is no central results database. A result counts only when a majority of independent actors in different environments agree. I capture LabVIEW launches so a tester can cover specific icon-editor CAR tests (a CAR is NI's bug-report number). Capture is frame-locked at 12 frames per second, so timings pair with NI I/O Trace and the Desktop Execution Trace Toolkit. In progress: drop two markers, and a local vision model explains what happened to CPU, GPU, RAM and disk, with an animated clip. When something breaks, the evidence is already there.
+
+</Notes>
+
+---
+
+## Actor Corroboration Grid: a result counts only when actors agree
+
+<div class="b-journey"><span>Came from</span><span class="on">Now</span><span>Going</span></div>
+
+<div class="b-flow">
+<div>Independent actors<small>different environments: Linux · Linux VM · Windows</small></div>
+<div>Same anchors?<small>series hash · bus version · gate verdict</small></div>
+<div class="b-hi">At least 2 of 3 agree<small>the release passes; if not, it is blocked and a divergence issue opens</small></div>
+</div>
+
+<p class="b-banner">Proven today: 2 benchmarks across 4 planes, 0 determinism violations</p>
+
+<p class="b-foot">Each actor signs its receipt · no central results database · requirement LBA-REQ-023, Proven</p>
+
+<Notes>
+
+The Actor Corroboration Grid is how a result earns trust. Independent actors in different environments, for example Linux, a Linux VM and Windows, re-run the same deterministic checks and each signs a receipt. Their anchors must agree: the series hash, the coordination-bus version and the gate verdict. If at least two of three agree, the release passes; if not, it's blocked and a divergence issue opens. There's no central results database: the receipts are the result. The cross-plane grid has two benchmarks proven across four planes with zero determinism violations, and the grid itself is a proven requirement.
+
+</Notes>
+
+---
+
+## Markers: two clicks turn a capture into tagged evidence
+
+<div class="b-journey"><span>Came from</span><span class="on">Now</span><span>Going</span></div>
+
+<div class="b-flow">
+<div>Place two markers<small>on the capture timeline, by you or by an agent</small></div>
+<div>Local vision model<small>CPU · GPU · RAM · disk · screen, on one clock</small></div>
+<div class="b-hi">A tagged range<small>only metadata leaves the machine</small></div>
+</div>
+
+<div class="b-tiles b-three">
+<div><strong>Data tagging</strong>What happened, labelled for later queries</div>
+<div><strong>Video</strong>An animated clip of exactly that range</div>
+<div><strong>Agentic docs</strong>Local agents update the documentation from the tagged facts</div>
+</div>
+
+<p class="b-foot"><Badge kind="progress" /> Specified as LBA-REQ-105, Planned until a gate proves it</p>
+
+<Notes>
+
+Here's how the markers will work. During or after a capture, you or an agent place two markers on the timeline. A local vision model then reads what happened in that range (CPU, GPU, RAM, disk and the screen), all on the capture's own clock. Three uses follow. Data tagging: the range is labelled, so it can be queried later. Video: an animated clip of exactly that range. Agentic documentation: local agents update the documentation from the tagged facts instead of guesses. Screen frames stay on the machine that captured them, and only metadata goes to the agent. It's in progress, specified as requirement 105, and stays planned until a gate proves it.
 
 </Notes>
 
