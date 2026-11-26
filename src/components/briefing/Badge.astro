@@ -1,0 +1,6 @@
+---
+interface Props { kind: 'working' | 'progress' | 'next' }
+const { kind } = Astro.props;
+const label = { working: 'Working today', progress: 'In progress', next: 'Next' }[kind];
+---
+<span class={`b-badge ${kind}`}>{label}</span>

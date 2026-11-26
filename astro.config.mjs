@@ -11,6 +11,7 @@ export default defineConfig({
       title: 'Ecosystem',
       description: 'A standardized wiki for every member of the ecosystem, and what it measured.',
       sidebar: [
+        { label: 'Briefing, 26 Nov 2026', link: '/briefing/' },
         { label: 'Ecosystem', link: '/ecosystem/' },
         {
           label: 'Results',

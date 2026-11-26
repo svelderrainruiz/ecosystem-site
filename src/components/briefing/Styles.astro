@@ -1,0 +1,49 @@
+---
+// Styles for the briefing, shared by the page (/briefing/) and the slides view (/briefing/slides/).
+// Every class starts with b- so nothing else on the site is affected.
+---
+<style is:global>
+  .b-cover { position: relative; padding: 2.5rem 1.5rem; border-radius: 0.8rem; overflow: hidden; background: #0f172a; color: #f8fafc; }
+  .b-cover-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.35; margin: 0 !important; }
+  .b-cover > *:not(.b-cover-bg) { position: relative; }
+  .b-title { font-size: 2.4rem; font-weight: 800; line-height: 1.1; margin: 0 0 0.6rem; }
+  .b-sub { font-size: 1.25rem; opacity: 0.9; margin: 0; }
+  .b-meta { font-size: 0.95rem; opacity: 0.75; margin-top: 1.2rem; }
+  .b-journey { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; margin: 0.4rem 0 0.8rem; }
+  .b-journey span { padding: 0.15rem 0.7rem; border-radius: 999px; border: 1px solid #94a3b8; font-size: 0.85rem; }
+  .b-journey span.on { background: #2563eb; border-color: #2563eb; color: #fff; }
+  .b-badge { display: inline-block; font-size: 0.72rem; font-weight: 700; padding: 0.1rem 0.55rem; border-radius: 999px; vertical-align: middle; margin-left: 0.4rem; white-space: nowrap; }
+  .b-badge.working { background: #dcfce7; color: #14532d; }
+  .b-badge.progress { background: #fef3c7; color: #78350f; }
+  .b-badge.next { background: #e5e7eb; color: #374151; }
+  .b-tiles { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin: 0.8rem 0; }
+  .b-tiles > div, .b-box { border: 1px solid #cbd5e1; border-radius: 0.6rem; padding: 0.7rem 0.9rem; }
+  .b-tiles strong { display: block; margin-bottom: 0.2rem; }
+  .b-banner { border-left: 4px solid #2563eb; padding: 0.4rem 0.9rem; margin: 0.8rem 0; font-weight: 600; }
+  .b-flow, .b-chain, .b-timeline { display: flex; align-items: stretch; gap: 1.6rem; margin: 0.9rem 0; }
+  .b-flow > div, .b-chain > div, .b-timeline > div { position: relative; flex: 1 1 0; border: 1px solid #cbd5e1; border-radius: 0.6rem; padding: 0.6rem 0.7rem; text-align: center; font-weight: 600; }
+  .b-flow > div + div::before, .b-chain > div + div::before, .b-timeline > div + div::before { content: '→'; position: absolute; left: -1.25rem; top: 50%; transform: translateY(-50%); font-weight: 700; color: #64748b; }
+  .b-chain > div + div::before { content: '⇄'; }
+  .b-flow small, .b-chain small, .b-timeline small, .b-hub small { display: block; font-weight: 400; opacity: 0.75; font-size: 0.8em; }
+  .b-flow > div.b-hi, .b-hub .b-core { background: #eff6ff; border-color: #93c5fd; color: #1e3a8a; }
+  .b-hub { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; margin: 0.8rem 0; }
+  .b-hub > div { border: 1px solid #cbd5e1; border-radius: 0.6rem; padding: 0.45rem 0.6rem; font-size: 0.9rem; font-weight: 600; }
+  .b-hub .b-core { grid-column: 1 / -1; text-align: center; }
+  .b-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }
+  .b-cols h3 { margin-top: 0 !important; }
+  .b-steps { display: flex; gap: 0.8rem; align-items: flex-end; margin: 0.8rem 0; }
+  .b-steps > div { flex: 1 1 0; border: 1px solid #cbd5e1; border-radius: 0.6rem; padding: 0.7rem 0.8rem; }
+  .b-steps > div:nth-child(1) { margin-top: 3rem; }
+  .b-steps > div:nth-child(2) { margin-top: 1.5rem; }
+  .b-steps strong { display: block; }
+  .b-graph { position: relative; margin: 0.6rem 0; }
+  .b-graph img { display: block; width: 100%; height: auto; border-radius: 0.6rem; background: #0f172a; margin: 0 !important; }
+  .b-legend { display: flex; gap: 0.6rem 1.2rem; flex-wrap: wrap; font-weight: 700; margin: 0.5rem 0; }
+  .b-legend span::before { content: ''; display: inline-block; width: 0.7em; height: 0.7em; border-radius: 50%; margin-right: 0.35em; background: #9ca3af; }
+  .b-legend .req::before { background: #2ea043; }
+  .b-legend .test::before { background: #3878dc; }
+  .b-legend .adr::before { background: #e8833a; }
+  .b-status { font-size: 0.95rem; opacity: 0.85; }
+  .b-notes { margin: 1rem 0 1.6rem; padding: 0.8rem 1rem; border-radius: 0.6rem; background: rgba(148, 163, 184, 0.15); font-size: 0.95rem; }
+  .b-notes-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.7; margin: 0 0 0.3rem !important; }
+</style>
