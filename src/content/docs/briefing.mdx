@@ -1,6 +1,6 @@
 ---
-title: "Briefing: where it is and where it's going"
-description: The status briefing of 26 November 2026, readable as a page and presentable as slides.
+title: "Specification-Driven Design for Scalable AI Tooling"
+description: Discover how specification-driven design can turn AI-assisted coding into a robust and scalable CI/CD ecosystem for LabVIEW benchmarking.
 ---
 import Styles from '../../components/briefing/Styles.astro';
 import Notes from '../../components/briefing/Notes.astro';
@@ -12,15 +12,15 @@ import Badge from '../../components/briefing/Badge.astro';
 
 <div class="b-cover">
 <img class="b-cover-bg" src="/ecosystem-site/briefing/lba-wiki-graph.svg" alt="" />
-<p class="b-title">From VI history to a spec-driven ecosystem</p>
-<p class="b-sub">Where my LabVIEW tools are today, and where they are going</p>
-<div class="b-journey"><span>Came from</span><span>Now</span><span>Going</span></div>
+<p class="b-title">Specification-Driven Design for Scalable AI Tooling</p>
+<p class="b-sub">Discover how specification-driven design can turn AI-assisted coding into a robust and scalable CI/CD ecosystem for LabVIEW benchmarking.</p>
+<div class="b-journey"><span>Came from: VI History Suite</span><span>Now: LabVIEW Benchmark Actor</span><span>Going: the ecosystem</span></div>
 <p class="b-meta">26 November 2026 · A status update, not a sales pitch</p>
 </div>
 
 <Notes>
 
-Thanks for making the time. This is not a sales pitch. I want to show you where my tools are today, why I built them, and what I plan to do with them. We'll make three stops: where we came from, where we are now and where we're going. The picture behind the title is the highlight, and I'll open it live near the end.
+Thanks for making the time. Today I want to show you how specification-driven design can turn AI-assisted coding into a robust and scalable CI/CD ecosystem for LabVIEW benchmarking. This is not a sales pitch. I'll show you where my tools are today, why I built them, and what I plan to do with them, in three stops: where we came from, where we are now and where we're going. The picture behind the title is the highlight, and I'll open it live near the end.
 
 </Notes>
 
@@ -35,12 +35,13 @@ Thanks for making the time. This is not a sales pitch. I want to show you where 
 
 <div class="b-flow">
 <div>Three problems<small>manual tests · overage bills · reverse-engineering</small></div>
+<div>Specification-driven design<small>AI-assisted coding against a spec</small></div>
 <div class="b-hi">One goal<small>0 USD overage</small></div>
 </div>
 
 <Notes>
 
-None of this started as a product. Each tool exists because I needed it. LabVIEW testing is still largely manual. The icon editor is a good example: someone clicks through scenarios and checks the results by eye. AI agents help a lot, but every month the credit runs out and an overage bill arrives. And when I like someone's idea, I usually have to reverse-engineer it from their source. So the goal is simple. Spend AI money only where real judgement is needed, which is the requirements, and let local machines do the heavy lifting. Everything you'll see today serves that goal.
+None of this started as a product. Each tool exists because I needed it. LabVIEW testing is still largely manual. The icon editor is a good example: someone clicks through scenarios and checks the results by eye. AI agents help a lot, but every month the credit runs out and an overage bill arrives. And when I like someone's idea, I usually have to reverse-engineer it from their source. So the goal is simple. Spend AI money only where real judgement is needed, which is the requirements, and let local machines do the heavy lifting. Specification-driven design is what gets me there: the AI codes against a specification, so the result stays robust as it grows.
 
 </Notes>
 
@@ -73,7 +74,7 @@ This is where we came from. LabVIEW code is graphical and saved in binary files,
 
 ---
 
-## Now, every machine with the extension becomes an "actor"
+## Now: LabVIEW benchmarking for CI/CD, where every machine is an actor
 
 <div class="b-journey"><span>Came from</span><span class="on">Now</span><span>Going</span></div>
 
@@ -88,7 +89,7 @@ This is where we came from. LabVIEW code is graphical and saved in binary files,
 
 <Notes>
 
-This is where we are now: the [LabVIEW Benchmark Actor](https://github.com/svelderrainruiz/labview-benchmark-actor). Every computer with the extension installed becomes an actor. Each actor has an abstract name, so there are no machine names and no central results database. It does four things for me. One, the Actor Corroboration Grid: a result counts only when a majority of independent actors in different environments agree. That's requirement 23 in the spec, and it's proven. Two, benchmarking: I capture a LabVIEW launch so a manual tester can cover specific icon-editor CAR tests (a CAR is NI's bug-report number). Three, one deterministic clock: capture is frame-locked at exactly 12 frames per second, so the timings can be paired with NI I/O Trace and the Desktop Execution Trace Toolkit. Four, data tagging, which is in progress: I drop two markers and a local vision model explains what happened to CPU, GPU, RAM and disk in that range, with an animated clip. And when something goes wrong, it's my break-glass tool, because the evidence is already captured.
+This is where we are now: the [LabVIEW Benchmark Actor](https://github.com/svelderrainruiz/labview-benchmark-actor), built for the LabVIEW CI/CD community. Every computer with the extension installed becomes an actor. Each actor has an abstract name, so there are no machine names and no central results database. It does four things for me. One, the Actor Corroboration Grid: a result counts only when a majority of independent actors in different environments agree. That's requirement 23 in the spec, and it's proven. Two, benchmarking: I capture a LabVIEW launch so a manual tester can cover specific icon-editor CAR tests (a CAR is NI's bug-report number). Three, one deterministic clock: capture is frame-locked at exactly 12 frames per second, so the timings can be paired with NI I/O Trace and the Desktop Execution Trace Toolkit. Four, data tagging, which is in progress: I drop two markers and a local vision model explains what happened to CPU, GPU, RAM and disk in that range, with an animated clip. And when something goes wrong, it's my break-glass tool, because the evidence is already captured.
 
 </Notes>
 
@@ -145,7 +146,7 @@ Where we're going is spec-driven collaboration for a scalable ecosystem of devel
 
 ---
 
-## Vibe-codeable source: the spec tells your agent how to build it
+## Specification-driven design: the spec tells your agent how to build it
 
 <div class="b-journey"><span>Came from</span><span>Now</span><span class="on">Going</span></div>
 
@@ -157,7 +158,7 @@ Where we're going is spec-driven collaboration for a scalable ecosystem of devel
 <div>Results</div>
 </div>
 
-- No reverse-engineering: the spec says how, and tests show it works
+- Vibe-codeable source: the spec says how, and tests show it works
 - Installer spec, published: 102 requirements · 58 test items
 - Written so an agent given only the spec can rebuild it
 - We compare requirements, not source
@@ -213,7 +214,7 @@ This is the part I'm proudest of. *(Switch to Obsidian.)* This is the Benchmark 
 
 <Notes>
 
-Two things keep this safe and measurable. The first is governance. Every change passes fail-closed gates before it's merged, and the Benchmark Actor alone has more than 180 of them. Every requirement is traced to a test and a design decision, there's an independent review before anything is merged, and this site deploys only if its own check passes. The second is facts. Every working session records its AI tokens, its cost and the operator's time, in a database I own. That's what lets me say "this change will cost X if you do it this way". It also makes it easy to hand documentation upkeep to local AI, because tasks are assigned from facts, not guesses.
+Two things make AI-assisted coding robust here, and keep it safe and measurable. The first is governance. Every change passes fail-closed gates before it's merged, and the Benchmark Actor alone has more than 180 of them. Every requirement is traced to a test and a design decision, there's an independent review before anything is merged, and this site deploys only if its own check passes. The second is facts. Every working session records its AI tokens, its cost and the operator's time, in a database I own. That's what lets me say "this change will cost X if you do it this way". It also makes it easy to hand documentation upkeep to local AI, because tasks are assigned from facts, not guesses.
 
 </Notes>
 
@@ -270,7 +271,7 @@ Here's how you can take part, and no source code changes hands: we share results
 
 <Notes>
 
-Where we came from, where we are and where we're going. Everything on this slide is public, and this briefing stays online. Results speak for themselves. Thank you. Questions?
+Specification-driven design is how AI-assisted coding becomes a robust and scalable CI/CD ecosystem for LabVIEW benchmarking: where we came from, where we are and where we're going. Everything on this slide is public, and this briefing stays online. Results speak for themselves. Thank you. Questions?
 
 </Notes>
 
